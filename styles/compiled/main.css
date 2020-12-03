@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid blue; }
+
+html {
+  height: 100%;
+  min-height: 100%; }
+  html body {
+    background-color: #ffffff;
+    line-height: 1.4;
+    min-height: 100%; }
+
+nav {
+  height: 8vh;
+  background-color: rgba(255, 255, 255, 0.1); }
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: nowrap; }
+
+.header {
+  background: url("background.jpg") no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  background-size: cover;
+  text-align: center;
+  height: 100vh; }
+  .header .banner {
+    color: #ffffff;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    .header .banner div {
+      margin: 18px; }
+      .header .banner div h1 {
+        font-size: 1.5em; }
+      .header .banner div p {
+        font-size: 1.2em;
+        font-weight: lighter; }
+
+.about {
+  height: 80%;
+  width: 100%; }
+  .about h1 {
+    margin-top: 10px;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 300; }
+  .about .container {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap; }
+    .about .container .card {
+      height: 70vh;
+      width: 44vw;
+      border: 1px solid red;
+      margin: 7px;
+      padding-left: 7px;
+      padding-right: 7px;
+      text-align: center;
+      overflow: hidden; }
+      .about .container .card figure {
+        display: flex;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        .about .container .card figure img {
+          width: 45%;
+          height: 45%;
+          min-width: 200px;
+          min-height: 200px;
+          margin-top: 25px;
+          border: 1px solid #A9A9A9;
+          border-radius: 50%;
+          -webkit-box-shadow: 0px 0px 40px -1px rgba(0, 0, 0, 0.75);
+          -moz-box-shadow: 0px 0px 40px -1px rgba(0, 0, 0, 0.75);
+          -o-box-shadow: 0px 0px 40px -1px rgba(0, 0, 0, 0.75);
+          -ms-box-shadow: 0px 0px 40px -1px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 0px 40px -1px rgba(0, 0, 0, 0.75); }
+        .about .container .card figure figcaption {
+          min-width: 400px;
+          max-width: fit-content;
+          min-height: 75px;
+          max-height: fit-content;
+          background-color: #d3d3d3;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 5px 5px 5px 5px;
+          -moz-border-radius: 5px 5px 5px 5px;
+          -webkit-border-radius: 5px 5px 5px 5px;
+          border: 0px solid #000000;
+          margin-top: 25px;
+          font-size: 0.8rem;
+          font-weight: 400; }
+          .about .container .card figure figcaption .icon {
+            background-image: url("quote-right-solid.svg");
+            background-repeat: no-repeat;
+            height: 32px;
+            width: 32px;
+            color: black;
+            position: relative;
+            bottom: 13px;
+            padding-right: 5px; }
+
+/*
+
+@media screen and (max-width: $break-point-md) {
+    .about {
+        .container {
+            .card {
+                width: 90%;
+                height: 90%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $break-point-sm) {
+    .about {
+        .container {
+            .card {
+                width: 100%;
+                height: 80%;
+                figcaption {
+                    min-height: 100px;
+                    max-height: fit-content;
+                    min-width: 280px;
+                    max-width: fit-content;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $break-point-xsm) {
+    figcaption {
+        background-color: red;
+    }
+}
+*/
+footer {
+  background: black;
+  color: #ffffff;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  line-height: 150%;
+  font-size: 1.15rem; }
+  footer .two-cols {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+    padding-left: 10px; }
+    footer .two-cols div {
+      width: 100%;
+      text-align: left;
+      margin-right: 4px; }
+    footer .two-cols .two-rows {
+      display: flex;
+      justify-content: space-around;
+      align-items: center; }
