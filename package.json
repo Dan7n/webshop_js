@@ -20,6 +20,7 @@
     "dependencies": {
         "browser-sync": "^2.26.13",
         "gulp": "^4.0.2",
+        "gulp-csso": "^4.0.1",
         "gulp-sass": "^4.1.0"
     },
     "description": ""
