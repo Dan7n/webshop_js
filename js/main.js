@@ -24,6 +24,7 @@ $(function() {
     let chocolate_4 = new Product("DOVE PROMISES Dark Chocolate Candy Bag", "Chocolate", 43, "assets/products/cat_chocolate/dove.jpeg", id++, "Made with real dark chocolate for a delicious afternoon snack");
     let chocolate_5 = new Product("Hershey's, Milk Chocolate Candy Bars", "Chocolate", 52, "assets/products/cat_chocolate/hersheys.png", id++, "Milk Chocolate [Cane Sugar, Milk, Chocolate, Cocoa Butter, Milk Fat, Lecithin (Soy), Natural Flavor].");
     let chocolate_6 = new Product("Kisses Milk Chocolate Candy, Holiday Candy Bag", "Chocolate", 99, "assets/products/cat_chocolate/kisses.jpeg", id++, "Milk Chocolate [Cane Sugar, Milk, Chocolate, Cocoa Butter, Milk Fat, Lecithin (Soy), Natural Flavor].");
+    products.push(chocolate_1, chocolate_2, chocolate_3, chocolate_4, chocolate_5, chocolate_6);
 
     //products => soda catagory
     let soda_1 = new Product("(2 pack) Pepsi Soda", "Soda", 99, "assets/products/cat_soda/pepsi.jpeg", id++, "Ingredients: CARBONATED WATER, HIGH FRUCTOSE CORN SYRUP, CARAMEL COLOR, SUGAR, PHOSPHORIC ACID, CAFFEINE, CITRIC ACID, NATURAL FLAVOR.");
@@ -32,4 +33,5 @@ $(function() {
     let soda_4 = new Product("(2 pack) Mtn Dew Frost Bite", "Soda", 89, "assets/products/cat_soda/mountain-dew.jpeg", id++, "Introducing MTN DEW FROST, the taste that chills!");
     let soda_5 = new Product("(2 Pack) Coke Zero Sugar Diet Soda Soft Drink", "Soda", 123, "assets/products/cat_soda/cola-zero.jpeg", id++, "Coca-Cola Zero Sugar has more real Coca-Cola flavor, still without any sugar");
     let soda_6 = new Product("Dr Pepper & Cream Soda", "Soda", 69, "assets/products/cat_soda/dr-pepper.jpeg", id++, "The 23 signature flavors of Dr Pepper & Cream Soda are blended to create one satisfyingly unique beverage. Other sodas can try, but only Dr Pepper can crush your craving for flavor");
+    products.push(soda_1, soda_2, soda_3, soda_4, soda_5, soda_6)
 })
