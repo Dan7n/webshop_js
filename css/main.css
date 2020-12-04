@@ -11,3 +11,17 @@ html {
   html body {
     height: 100%;
     width: 100%; }
+    html body header {
+      color: black;
+      width: 100%;
+      height: 15%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0 4%; }
+      html body header ul {
+        display: flex;
+        gap: 10px; }
+        html body header ul li {
+          list-style-type: none; }
