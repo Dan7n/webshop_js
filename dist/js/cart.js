@@ -1,0 +1,1 @@
+"use strict";$((function(){var o=localStorage.getItem(["cart"]);if(o||""===o){var l=JSON.parse(localStorage.cart);console.log(l)}else void 0!==localStorage&&null!==localStorage||console.log("cart is empty")}));

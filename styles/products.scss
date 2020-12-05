@@ -1,6 +1,5 @@
 @import 'variables/_mixins.scss';
 @import 'variables/_var.scss';
-@import 'variables/_background.scss';
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +16,7 @@ html {
         #cart {
             padding: 0 0;
             text-align: center;
-            div{
+            div {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
@@ -33,7 +32,6 @@ html {
                 font-weight: bold;
             }
         }
-
         #sortButtonContainer {
             display: flex;
             justify-content: center;
@@ -48,7 +46,6 @@ html {
                 border-bottom: 2px solid gray;
             }
         }
-        
         #productContainer {
             margin: 40px 0px;
             display: flex;
@@ -58,15 +55,13 @@ html {
             flex-wrap: wrap;
             gap: 50px;
             padding: 10px;
-
             div {
                 width: 20%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: space-evenly;
-                
-                img{
+                img {
                     height: 145px;
                 }
                 p {

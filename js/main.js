@@ -1,5 +1,6 @@
 let products = [];
 let cart = [];
+const cartPage = $("#cartPage");
 
 
 class Product {
@@ -57,14 +58,14 @@ $(function() {
     let soda_5 = new Product("(2 Pack) Coke Zero Sugar Diet Soda Soft Drink", "Soda", 123, "../assets/products/cat_soda/cola-zero.jpeg", id++, "Coca-Cola Zero Sugar has more real Coca-Cola flavor, still without any sugar", 0);
     let soda_6 = new Product("Dr Pepper & Cream Soda", "Soda", 69, "../assets/products/cat_soda/dr-pepper.jpeg", id++, "The 23 signature flavors of Dr Pepper & Cream Soda are blended to create one satisfyingly unique beverage. Other sodas can try, but only Dr Pepper can crush your craving for flavor", 0);
     products.push(soda_1, soda_2, soda_3, soda_4, soda_5, soda_6)
-  
+
     addProductsHtml();
     pickProductCategory();
     productCart();
 
 })
 
-function addProductsHtml () {
+function addProductsHtml() {
     $.each(products, (i, product) => {
         let productWrapper = $("<div></div>");
         let productImage = $("<img>");
@@ -87,83 +88,93 @@ function addProductsHtml () {
         productWrapper.appendTo($("#productContainer"));
     })
 }
-function pickProductCategory () {
+
+function pickProductCategory() {
     $("#sodaSortButton").on('click', () => {
         $.each(products, (i, product) => {
-            $("#"+i).hide();
+            $("#" + i).hide();
             if (product.category === "Soda") {
-                $("#"+i).show();
+                $("#" + i).show();
             }
         })
-    }) 
-    
+    })
+
     $("#nutsSortButton").on('click', () => {
         $.each(products, (i, product) => {
-            $("#"+i).hide();
+            $("#" + i).hide();
             if (product.category === "Nuts") {
-                $("#"+i).show();
+                $("#" + i).show();
             }
         })
     })
 
     $("#chocolateSortButton").on('click', () => {
         $.each(products, (i, product) => {
-            $("#"+i).hide();
+            $("#" + i).hide();
             if (product.category === "Chocolate") {
-                $("#"+i).show();
+                $("#" + i).show();
             }
         })
-    }) 
+    })
 
     $("#chipsSortButton").on('click', () => {
         $.each(products, (i, product) => {
-            $("#"+i).hide();
+            $("#" + i).hide();
             if (product.category === "Chips") {
-                $("#"+i).show();
+                $("#" + i).show();
             }
         })
     })
 
     $("#allSortButton").on('click', () => {
         $.each(products, (i, product) => {
-            $("#"+i).show();
+            $("#" + i).show();
         })
     })
 }
 
-function productCart () {
+function productCart() {
     console.log(cart.length);
     if (cart.length === 0) {
         $("<h2></h2>").text("Your cart is empty!").appendTo($("#cart"));
     } else {
         $("#cart").html(" ");
         let sum = 0;
-        $.each(cart ,(i, cartProduct) => {
+        $.each(cart, (i, cartProduct) => {
             let cartProductWrapper = $("<div></div>");
             $("<img>").attr("src", cartProduct.image).appendTo(cartProductWrapper);
             $("<h5></h5>").text(cartProduct.name).appendTo(cartProductWrapper);
             $("<span></span>").text(cartProduct.price + " kr").appendTo(cartProductWrapper);
-            $("<button></button>").attr("type", "button").html("&#10005;").on('click', () => {
+            $("<button></button>").attr("type", "button").html("&#10005;").on('click', () =>  {
                 cartProduct.inCart = 0;
                 cart.splice(i, 1);
             }).appendTo(cartProductWrapper);
             sum += cartProduct.price;
 
-            
+
             cartProductWrapper.appendTo($("#cart"));
         })
-        
+
         $("<p></p>").html("Total: " + sum + " kr").appendTo($("#cart"));
+
+
+        //note to self: add function to remove items from local storage when removing items from cart
+        //saving the array to local storage so that it can be used when the user clicks on the Cart tab
+        // localStorage.setItem('cart', JSON.stringify(cart))
+
+        localStorage["cart"] = JSON.stringify(cart)
     }
-    
+
+    // cartPage.on('click', console.log("works"));
+
 
     $("#cart").dialog({
         autoOpen: false,
         height: "600",
         width: "550"
-      });
+    });
 
     $("#temporaryCart").on('click', () => {
-        $( "#cart" ).dialog("open");
+        $("#cart").dialog("open");
     })
 }
