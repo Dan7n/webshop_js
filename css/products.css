@@ -10,15 +10,48 @@ html {
   font-family: 'Raleway', sans-serif; }
   html body {
     background-image: none; }
+    html body #cart {
+      padding: 0 0;
+      text-align: center; }
+      html body #cart div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        margin: 20px 0px;
+        border: 1px solid grey; }
+        html body #cart div img {
+          height: 100%; }
+      html body #cart p {
+        font-weight: bold; }
+    html body #sortButtonContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 40px; }
+      html body #sortButtonContainer button {
+        border: none;
+        background-color: inherit;
+        font-family: inherit;
+        font-size: 140%;
+        border-bottom: 2px solid gray; }
     html body #productContainer {
+      margin: 40px 0px;
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
       align-items: center;
-      flex-wrap: wrap; }
+      flex-wrap: wrap;
+      gap: 50px;
+      padding: 10px; }
       html body #productContainer div {
         width: 20%;
-        padding: 50px 50px; }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly; }
         html body #productContainer div img {
           height: 145px; }
         html body #productContainer div p {
