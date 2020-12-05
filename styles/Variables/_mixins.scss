@@ -5,32 +5,9 @@
 }
 
 @mixin gradient-background {
-    background: linear-gradient(18deg, rgba(2, 63, 146, 0.7), rgba(255, 177, 164, 0.9));
-    background-size: 400% 400%;
-    -webkit-animation: gradient-background 13s ease infinite;
-    animation: gradient-background 13s ease infinite;
-    @-webkit-keyframes gradient-background {
-        0% {
-            background-position: 0% 50%
-        }
-        50% {
-            background-position: 100% 51%
-        }
-        100% {
-            background-position: 0% 50%
-        }
-    }
-    @keyframes gradient-background {
-        0% {
-            background-position: 0% 50%
-        }
-        50% {
-            background-position: 100% 51%
-        }
-        100% {
-            background-position: 0% 50%
-        }
-    }
+    background: linear-gradient(to right, rgba(189, 195, 199, 0.1), rgba(44, 62, 80, 0.6)), url("../../assets/hero.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
 @mixin delete-animations {
