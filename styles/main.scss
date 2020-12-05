@@ -1,6 +1,5 @@
 @import 'variables/_mixins.scss';
 @import 'variables/_var.scss';
-@import 'variables/_background.scss';
 * {
     margin: 0;
     padding: 0;
@@ -15,27 +14,157 @@ html {
     body {
         height: 100%;
         width: 100%;
-        background-image: url("../../assets/hero.jpg");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+        @include gradient-background;
         header {
             color: black;
             width: 100%;
-            height: 15%;
+            height: 10%;
             display: flex;
-            flex-direction: row;
+            flex-direction: row-reverse;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             padding: 0 4%;
-            ul {
+            position: relative;
+            // overflow: hidden;
+            svg {
+                cursor: pointer;
+            }
+            nav {
+                // display: none;
+                height: 100vh;
+                width: 14%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                background-color: rgba(11, 24, 40, 0.8);
                 display: flex;
-                gap: 10px;
-                li {
-                    list-style-type: none;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: all ease 200ms;
+                &:hover {
+                    width: 40%;
+                }
+                &:hover .link-texts {
+                    display: block;
+                }
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1.5rem;
+                    width: 100%;
+                    transition: width ease 200ms;
+                    li {
+                        list-style-type: none;
+                        width: 100%;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: flex-end;
+                        gap: 1rem;
+                        padding: 0 0.8rem;
+                        // &:hover {
+                        //     // background-color: #0b325d;
+                        // }
+                        svg>path {
+                            fill: #dfdfe5;
+                        }
+                        a {
+                            text-decoration: none;
+                            color: white;
+                            font-size: 1.2rem;
+                            font-weight: 200;
+                            display: none;
+                            &:hover {
+                                background: linear-gradient(338deg, rgba(0, 87, 116, 0.7973564425770308) 1%, rgba(240, 5, 30, 0.3883928571428571) 91%);
+                                -webkit-text-fill-color: transparent;
+                                background-clip: text;
+                                -webkit-background-clip: text;
+                                font-weight: 400;
+                                text-decoration: underline !important;
+                            }
+                        }
+                    }
                 }
             }
         }
-        
     }
 }
+
+@media screen and (min-width: 700px) {
+    header {
+        background-color: rgba(11, 24, 40, 0.1);
+        nav {
+            display: flex !important;
+            // width: 100% !important;
+            background-color: rgba(0, 0, 0, 0) !important;
+            position: relative !important;
+            height: 100% !important;
+            &:hover {
+                width: fit-content !important;
+            }
+            ul {
+                flex-direction: row !important;
+                justify-content: flex-start !important;
+                align-items: flex-end !important;
+                padding-bottom: 1rem;
+                gap: 10px !important;
+                height: 100%;
+                li {
+                    svg {
+                        display: none !important;
+                    }
+                    a {
+                        display: block !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// @media screen and (min-width: 700px) {
+//     header {
+//         color: black;
+//         width: 100%;
+//         height: 10%;
+//         display: flex;
+//         flex-direction: row-reverse;
+//         justify-content: space-between;
+//         align-items: center;
+//         padding: 0 4%;
+//         background-color: rgba(11, 24, 40, 0.1);
+//         // overflow: hidden;
+//         svg {
+//             cursor: pointer;
+//         }
+//         nav {
+//             display: flex !important;
+//             position: static !important;
+//             flex-direction: row !important;
+//             ul {
+//                 display: flex;
+//                 // flex-direction: column;
+//                 gap: 1.5rem;
+//                 li {
+//                     list-style-type: none;
+//                     a {
+//                         text-decoration: none;
+//                         color: #0b325d;
+//                         font-size: 1.2rem;
+//                         font-weight: 200;
+//                         &:hover {
+//                             background: linear-gradient(338deg, rgba(0, 87, 116, 0.7973564425770308) 1%, rgba(240, 5, 30, 0.3883928571428571) 91%);
+//                             -webkit-text-fill-color: transparent;
+//                             background-clip: text;
+//                             -webkit-background-clip: text;
+//                             font-weight: 400;
+//                             text-decoration: underline !important;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
