@@ -10,9 +10,21 @@ html {
   font-family: 'Raleway', sans-serif; }
   html body {
     background-image: none; }
+    html body #cartDialogButton {
+      display: flex;
+      justify-content: flex-end;
+      position: sticky;
+      top: 40px; }
+      html body #cartDialogButton #temporaryCart {
+        border: none;
+        background-color: inherit;
+        font-family: inherit;
+        font-size: 140%;
+        padding: 20px; }
     html body #cart {
       padding: 0 0;
-      text-align: center; }
+      text-align: center;
+      font-family: 'Raleway', sans-serif; }
       html body #cart div {
         display: flex;
         flex-direction: row;
@@ -23,8 +35,20 @@ html {
         border: 1px solid grey; }
         html body #cart div img {
           height: 100%; }
+        html body #cart div button {
+          background-color: transparent;
+          border: none; }
+        html body #cart div input {
+          width: 30px; }
       html body #cart p {
-        font-weight: bold; }
+        font-weight: bold;
+        margin: 10px 0px; }
+      html body #cart button {
+        border: 1px solid black;
+        font-family: inherit;
+        font-size: 140%;
+        padding: 5px;
+        margin: 10px 0px; }
     html body #sortButtonContainer {
       display: flex;
       justify-content: center;
@@ -61,3 +85,5 @@ html {
           padding: 10px;
           font-family: inherit;
           margin: 10px 0px; }
+        html body #productContainer div .addedToCart {
+          background-color: #90d3ff; }

@@ -33,21 +33,21 @@ $(function() {
     let chocolate_6 = new Product("Kisses Milk Chocolate Candy, Holiday Candy Bag", "Chocolate", 99, "../assets/products/cat_chocolate/kisses.jpeg", id++, "Milk Chocolate [Cane Sugar, Milk, Chocolate, Cocoa Butter, Milk Fat, Lecithin (Soy), Natural Flavor].", 0);
     products.push(chocolate_1, chocolate_2, chocolate_3, chocolate_4, chocolate_5, chocolate_6);
     //products => chips catagory
-    let kettleSaltAndVinegar = new Product("Kettle Brand Potato Chips, Sea Salt and Vinegar Kettle Chips", "Chips", 39, "../assets/products/cat_chips/kettleSaltAndVinegar.jpeg", id++, "Ingredients: Potatoes, Safflower And/Or Sunflower And/Or Canola Oil, Vinegar Powder (Maltodextrin, White Distilled Vinegar), Sea Salt, Maltodextrin, Citric Acid.");
-    let doritos = new Product("Doritos Nacho Cheese Flavored Tortilla Chips, Party Size", "Chips", 49, "../assets/products/cat_chips/doritos.jpeg", id++, "Ingredients: Corn, Vegetable Oil (Sunflower, Canola, And/Or Corn Oil), Maltodextrin (Made from Corn), Salt, Cheddar Cheese (Milk, Cheese Cultures, Salt, Enzymes), Whey, Monosodium Glutamate, Buttermilk, Romano Cheese (Part-Skim Cow's Milk, Cheese Cultures, Salt, Enzymes), Whey Protein Concentrate, Onion Powder, Corn Flour, Natural and Artificial Flavor, Dextrose, Tomato Powder, Lactose, Spices, Artificial Color (Including Yellow 6, Yellow 5, And Red 40), Lactic Acid, Citric Acid, Sugar, Garlic Powder, Skim Milk, Red and Green Bell Pepper Powder, Disodium Inosinate, and Disodium Guanylate");
-    let cheeseBalls = new Product("Utz Cheese Balls", "Chips", 89, "../assets/products/cat_chips/cheeseBalls.jpeg", id++, "Ingredients: Corn Meal, Vegetable Oil (Contains one or more of the following: Cottonseed, Corn, Canola, Sunflower, Safflower), Whey, Maltodextrin, Cheddar Cheese (Pasteurized Milk, Cheese Cultures, Salt, Enzymes), Milkfat, Whey Protein Concentrate, Salt, Mono and Diglycerides, Buttermilk Solids, Natural Flavor, Disodium Phosphate, Lactic Acid, Yellow #6, Autolyzed Yeast Extract, Yellow #5, Disodium Inosinate, Disodium Guanylate, Artificial Flavor.");
-    let cheetos = new Product("Cheetos Crunchy Flamin' Hot Cheese Flavored Snacks", "Chips", 39, "../assets/products/cat_chips/cheetos.jpeg", id++, "Ingredients: ENRICHED CORN MEAL (CORN MEAL, FERROUS SULFATE, NIACIN, THIAMIN MONONITRATE, RIBOFLAVIN, FOLIC ACID), VEGETABLE OIL (CORN, CANOLA, AND/OR SUNFLOWER OIL), FLAMIN' HOT SEASONING (MALTODEXTRIN MADE FROM CORN , SALT, SUGAR, MONOSODIUM GLUTAMATE, YEAST EXTRACT, CITRIC ACID, ARTIFICIAL COLOR RED 40 LAKE, YELLOW 6 LAKE, YELLOW 6, YELLOW 5 , SUNFLOWER OIL, CHEDDAR CHEESE MILK, CHEESE CULTURES, SALT, ENZYMES , ONION POWDER, WHEY, WHEY PROTEIN CONCENTRATE, GARLIC POWDER, NATURAL FLAVOR, BUTTERMILK, SODIUM DIACETATE, DISODIUM INOSINATE, DISODIUM GUANYLATE), AND SALT");
-    let lays = new Product("Lay's Classic Potato Chips, Party Size", "Chips", 39, "../assets/products/cat_chips/lays.jpeg", id++, "Ingredients: POTATOES, VEGETABLE OIL (SUNFLOWER, CORN AND/OR CANOLA OIL), AND SALT");
-    let pringles = new Product("Pringles, Potato Crisps Chips, Sour Cream & Onion Flavored", "Chips", 29, "../assets/products/cat_chips/lays.jpeg", id++, "Ingredients: DRIED POTATOES, VEGETABLE OIL (CORN, COTTONSEED, HIGH OLEIC SOYBEAN, AND/OR SUNFLOWER OIL), DEGERMINATED YELLOW CORN FLOUR, CORNSTARCH, RICE FLOUR, MALTODEXTRIN, MONO- AND DIGLYCERIDES.CONTAINS 2% OR LESS OF SALT, WHEY, SOUR CREAM (CREAM, NONFAT MILK, CULTURES), MONOSODIUM GLUTAMATE, ONION POWDER, COCONUT OIL, DEXTROSE, SUGAR, NATURAL FLAVORS, NONFAT MILK, CITRIC ACID, SODIUM CASEINATE, LACTIC ACID, YEAST EXTRACT, DISODIUM INOSINATE, DISODIUM GUANYLATE, BUTTERMILK, MALIC ACID, INVERT SUGAR, CULTURED NONFAT MILK, CREAM, WHEAT STARCH.");
+    let kettleSaltAndVinegar = new Product("Kettle Brand Potato Chips, Sea Salt and Vinegar Kettle Chips", "Chips", 39, "../assets/products/cat_chips/kettleSaltAndVinegar.jpeg", id++, "Is it presumptuous to call a chip a harmonic convergence of flavor? You might want to taste this chip before you answer. ", 0);
+    let doritos = new Product("Doritos Nacho Cheese Flavored Tortilla Chips, Party Size", "Chips", 49, "../assets/products/cat_chips/doritos.jpeg", id++, "DORITOS isn't just a chip. It's fuel for disruption - our flavors ignite adventure and inspire action. With every crunch, we aim to redefine culture and support those who are boldly themselves. Are you ready? If so, crunch on.", 0);
+    let cheeseBalls = new Product("Utz Cheese Balls", "Chips", 89, "../assets/products/cat_chips/cheeseBalls.jpeg", id++, "Have a fun and tasty food ready for the next special occasion or for every day snacking with Utz Cheese Balls. This product contains baked cheddar and is made with real cheese for a delicious taste on every piece. ", 0);
+    let cheetos = new Product("Cheetos Crunchy Flamin' Hot Cheese Flavored Snacks", "Chips", 39, "../assets/products/cat_chips/cheetos.jpeg", id++, "Hot, spicy flavor packed into crunchy, cheesy snacks. CHEETOS Crunchy FLAMIN' HOT Cheese Flavored Snacks are full of flavor and made with real cheese. Cheetos snacks are the much-loved cheesy treats that are fun for everyone! You just can't eat a Cheetos snack without licking the signature 'cheetle' off your fingertips.", 0);
+    let lays = new Product("Lay's Classic Potato Chips, Party Size", "Chips", 39, "../assets/products/cat_chips/lays.jpeg", id++, "It all starts with farm-grown potatoes, cooked and seasoned to perfection. So every LAY'S potato chip is perfectly crispy and full of fresh potato taste. Happiness in Every Bite. Large bag is perfect for sharing.", 0);
+    let pringles = new Product("Pringles, Potato Crisps Chips, Sour Cream & Onion Flavored", "Chips", 29, "../assets/products/cat_chips/lays.jpeg", id++, "Your favorite flavor combo of yummy sour cream and zesty onion is now in your favorite potato crisp. Deliciously seasoned Sour Cream and Onion Flavored Pringles Potato Crisps are flavored from edge to edge for a craveable taste and perfect crunch.", 0);
     products.push(kettleSaltAndVinegar, doritos, cheeseBalls, cheetos, lays, pringles);
 
     //products => nuts catagory
-    let pistachios = new Product("Wonderful Roasted & salted Pistachios", "Nuts", 55, "../assets/products/cat_nuts/pistachios.jpeg", id++, "Ingredients: PISTACHIOS, SEA SALT.");
-    let cashews = new Product("Great Value Deluxe Cashews", "Nuts", 99, "../assets/products/cat_nuts/cashews.jpeg", id++, "Ingredients: CASHEWS, VEGETABLE OIL (PEANUT OIL, COTTONSEED OIL, SOYBEAN OIL AND/OR SUNFLOWER OIL), SEA SALT.");
-    let walnuts = new Product("Fisher Chef's Naturals Walnut Halves & Pieces", "Nuts", 59, "../assets/products/cat_nuts/walnuts.jpeg", id++, "Ingredients: Walnuts.");
-    let vanillaCashews = new Product("Sahale Snacks Naturally Pomegranate Vanilla Flavored Cashews", "Nuts", 39, "../assets/products/cat_nuts/vanillaCashews.jpeg", id++, "Ingredients: Cashews, Pomegranate Flavored Dried Apples (Apples, Sugar, Natural Flavor, Citric Acid, Fruit and Vegetable Juice [for Color]), Organic Cane Sugar, Organic Tapioca Syrup, Brown Sugar, Sea Salt, Pomegranate Juice Concentrate, Dried Orange Peel, Dried Pomegranate, Vanilla Extract, Ground Vanilla Beans.");
-    let pecans = new Product("Fisher Chef's Naturals Pecan Halves", "Nuts", 129, "../assets/products/cat_nuts/pecans.jpeg", id++, "Ingredients: Pecans.");
-    let almonds = new Product("Great Value Whole Natural Almonds", "Nuts", 45, "../assets/products/cat_nuts/almonds.jpeg", id++, "Ingredients: ALMONDS");
+    let pistachios = new Product("Wonderful Roasted & salted Pistachios", "Nuts", 55, "../assets/products/cat_nuts/pistachios.jpeg", id++, "One 16 Ounce Resealable Pouch of our Roasted & Salted In-Shell Wonderful Pistachios. Wonderful Pistachios are a smart, healthy choice for folks around the world.", 0);
+    let cashews = new Product("Great Value Deluxe Cashews", "Nuts", 99, "../assets/products/cat_nuts/cashews.jpeg", id++, "Grab a container of our Great Value Roasted and Salted Cashew Halves and Pieces for a delicious snack that the whole family can enjoy any time of the day.", 0);
+    let walnuts = new Product("Fisher Chef's Naturals Walnut Halves & Pieces", "Nuts", 59, "../assets/products/cat_nuts/walnuts.jpeg", id++, "Fisher really goes nuts for fresh ideas in the kitchen, and we know you do too! So when cooking, replace ordinary with surprise. Experiment, improvise. Then enjoy the best part…sharing your delicious discovery with family and friends.", 0);
+    let vanillaCashews = new Product("Sahale Snacks Naturally Pomegranate Vanilla Flavored Cashews", "Nuts", 39, "../assets/products/cat_nuts/vanillaCashews.jpeg", id++, "Treat your palate to the rich, sweet and subtly tart flavor of Sahale Snacks Pomegranate Vanilla Flavored Cashews Glazed Mix. This delicious snack is crafted with dry-roasted whole cashews and pomegranate flavored apples and finished with a pinch of rich, fragrant Madagascar vanilla", 0);
+    let pecans = new Product("Fisher Chef's Naturals Pecan Halves", "Nuts", 129, "../assets/products/cat_nuts/pecans.jpeg", id++, "FISHER Chef's Naturals Pecan Halves, No Preservatives, Non-GMO, 24 ozFisher really goes nuts for fresh ideas in the kitchen, and we know you do too! So when cooking, replace ordinary with surprise. ", 0);
+    let almonds = new Product("Great Value Whole Natural Almonds", "Nuts", 45, "../assets/products/cat_nuts/almonds.jpeg", id++, "Taste the bold flavor and crunch of Great Value Whole Natural Almonds. This 14-ounce bag is the perfect size to keep at your desk at work or in the pantry for a quick snack within easy reach.", 0);
     products.push(pistachios, cashews, walnuts, vanillaCashews, pecans, almonds);
 
     //products => soda catagory
@@ -79,10 +79,17 @@ function addProductsHtml() {
         productPrice.text(product.price + " kr").appendTo(productWrapper);
         productButton.attr("type", "button").text("Add To Cart!").on('click', () => {
             product.inCart++;
-            cart.push(product);
-            console.log(cart);
+            if (product.inCart <= 1) {
+                cart.push(product);
+            }
+
+            productButton.text("Added to cart!");
+            productButton.addClass("addedToCart");
+            window.setTimeout(()=> {
+                productButton.text("Add to cart!");
+                productButton.removeClass("addedToCart");
+            }, 4000);
             productCart();
-            // Öppna varukorgen och visa innehållet av den inklusive det nya tillägget
         }).appendTo(productWrapper);
 
         productWrapper.appendTo($("#productContainer"));
@@ -133,29 +140,48 @@ function pickProductCategory() {
     })
 }
 
+
+
 function productCart() {
-    console.log(cart.length);
     if (cart.length === 0) {
+        $("#cart").html(" ");
         $("<h2></h2>").text("Your cart is empty!").appendTo($("#cart"));
     } else {
-        $("#cart").html(" ");
         let sum = 0;
+        $("#cart").html(" ");
         $.each(cart, (i, cartProduct) => {
-            let cartProductWrapper = $("<div></div>");
+            let price = cartProduct.price * cartProduct.inCart;
+            sum += price;
+
+            let cartProductWrapper = $("<div></div>").addClass("cartProductWrapper");
             $("<img>").attr("src", cartProduct.image).appendTo(cartProductWrapper);
             $("<h5></h5>").text(cartProduct.name).appendTo(cartProductWrapper);
             $("<span></span>").text(cartProduct.price + " kr").appendTo(cartProductWrapper);
+
+            let changeAmmountProductInput = $("<input></input>");
+            changeAmmountProductInput.attr("type", "number").attr("value", cartProduct.inCart).on('keypress', (event) => {
+                if(event.key === 'Enter') {
+                    cartProduct.inCart = parseInt(changeAmmountProductInput.val());
+                    sum += (cartProduct.price * (cartProduct.inCart-1));
+                    totalPrice.html("Total: " + sum + " kr");
+
+                }
+            }).appendTo(cartProductWrapper);
             $("<button></button>").attr("type", "button").html("&#10005;").on('click', () =>  {
                 cartProduct.inCart = 0;
                 cart.splice(i, 1);
+                productCart();
             }).appendTo(cartProductWrapper);
-            sum += cartProduct.price;
-
 
             cartProductWrapper.appendTo($("#cart"));
-        })
 
-        $("<p></p>").html("Total: " + sum + " kr").appendTo($("#cart"));
+            
+        })
+        let totalPrice = $("<p></p>");
+        totalPrice.html("Total: " + sum + " kr").appendTo($("#cart"));
+        $("<button></button>").attr("type", "button").text("Go To Checkout!").on('click', () => {
+            window.open("cart.html","_self");
+        }).appendTo($("#cart"));
 
 
         //note to self: add function to remove items from local storage when removing items from cart
@@ -164,11 +190,11 @@ function productCart() {
 
     }
 
-
     $("#cart").dialog({
         autoOpen: false,
         height: "600",
-        width: "550"
+        width: "550",
+        position: { my: "left top", at: "left top", of: "#temporaryCart" }
     });
 
     $("#temporaryCart").on('click', () => {
