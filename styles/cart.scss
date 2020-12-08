@@ -1,0 +1,90 @@
+//cart dependencies
+@import 'variables/_mixins.scss';
+@import 'variables/_var.scss';
+body {
+    background-image: none !important;
+    // background-color: rgba(151, 157, 172, .6) !important;
+    background: linear-gradient(262deg, #f9dcc4, #cbc0d3) !important;
+    background-size: 400% 400%;
+    width: 100% !important;
+    height: 100%;
+    @keyframes backgroundAnimation_cart {
+        0% {
+            background-position: 0% 50%
+        }
+        50% {
+            background-position: 100% 50%
+        }
+        100% {
+            background-position: 0% 50%
+        }
+    }
+    header {
+        background-color: rgba(11, 24, 40, 0.4) !important;
+    }
+    .cart-contanier {
+        width: 100%;
+        height: 100%;
+        @include center-all;
+        .cart-items {
+            background-color: #fdfffc;
+            width: 85%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 3rem;
+            //in case cart is NOT empty
+            .cart-item-container {
+                width: 100%;
+                height: 300px;
+                display: grid;
+                grid-template-areas: "img h4 price" "img p .";
+                img {
+                    width: 200px;
+                    height: 200px;
+                    grid-area: img;
+                }
+                h4 {
+                    grid-area: h4;
+                }
+                .cart-item-p {
+                    grid-area: p;
+                }
+                .cart-item-p-price {
+                    grid-area: price;
+                }
+            }
+            //in case cart is empty
+            .cart-empty-svg {
+                height: 59%;
+                width: 70%;
+            }
+            .cart-empty-h1 {
+                color: $faliure;
+                margin-bottom: 0.7rem;
+                font-size: 1.5rem;
+            }
+            .cart-empty-p {
+                font-size: 1.1rem;
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+            .cart-empty-btn {
+                margin-bottom: 5rem;
+                text-decoration: none;
+                padding: .6rem 1.4rem;
+                font-size: 1rem;
+                border: 1px solid $purpile-blue;
+                color: $purpile-blue;
+                box-shadow: -11px 10px 13px -1px rgba(0, 0, 0, 0.31);
+                transition: all ease 150ms;
+                &:hover {
+                    background-color: $purpile-blue;
+                    color: white;
+                }
+            }
+        }
+    }
+}
