@@ -1,5 +1,6 @@
 @import 'variables/_mixins.scss';
 @import 'variables/_var.scss';
+
 * {
     margin: 0;
     padding: 0;
@@ -13,25 +14,58 @@ html {
     font-family: 'Raleway', sans-serif;
     body {
         background-image: none;
-        #cart {
-            padding: 0 0;
-            text-align: center;
-            div {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                height: 50px;
-                margin: 20px 0px;
-                border: 1px solid grey;
-                img {
-                    height: 100%;
-                }
-            }
-            p {
-                font-weight: bold;
+        #cartDialogButton{
+            display: flex;
+            justify-content: flex-end;
+            position: sticky;
+            top: 40px;
+
+            #temporaryCart {
+                border: none;
+                background-color: inherit;
+                font-family: inherit;
+                font-size: 140%;
+                padding: 20px;
             }
         }
+            #cart {
+                padding: 0 0;
+                text-align: center;
+                font-family: 'Raleway', sans-serif;            
+
+                div{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 50px;
+                    margin: 20px 0px;
+                    border: 1px solid grey;                       
+                    img {
+                        height: 100%;
+                    }
+                    button {
+                        background-color: transparent;
+                        border: none;
+                    }
+                    input {
+                        width: 30px;
+                    }
+                    
+                }
+                p {
+                    font-weight: bold;
+                    margin: 10px 0px;
+                }
+                
+                button {
+                    border: 1px solid black;
+                    font-family: inherit;
+                    font-size: 140%;
+                    padding: 5px;
+                    margin: 10px 0px;
+                }
+            }   
         #sortButtonContainer {
             display: flex;
             justify-content: center;
@@ -46,6 +80,7 @@ html {
                 border-bottom: 2px solid gray;
             }
         }
+        
         #productContainer {
             margin: 40px 0px;
             display: flex;
@@ -55,13 +90,15 @@ html {
             flex-wrap: wrap;
             gap: 50px;
             padding: 10px;
+
             div {
                 width: 20%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: space-evenly;
-                img {
+                
+                img{
                     height: 145px;
                 }
                 p {
@@ -72,6 +109,9 @@ html {
                     padding: 10px;
                     font-family: inherit;
                     margin: 10px 0px;
+                }
+                .addedToCart {
+                    background-color: rgb(144, 211, 255);
                 }
             }
         }
