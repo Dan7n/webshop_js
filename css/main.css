@@ -72,6 +72,45 @@ html {
               font-size: 1.2rem;
               font-weight: 200;
               display: none; }
+    html body footer {
+      position: fixed;
+      bottom: 0;
+      height: 12vh;
+      width: 100%;
+      background-color: rgba(11, 24, 40, 0.3);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1rem 0 4rem;
+      color: #dfdfe5; }
+      html body footer #adress {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+        html body footer #adress span {
+          font-size: 90%; }
+        html body footer #adress a {
+          font-size: 90%;
+          color: inherit; }
+      html body footer ul {
+        width: 30%;
+        height: 100%;
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center; }
+        html body footer ul a {
+          font-size: 120%;
+          color: inherit;
+          text-decoration: none; }
+        html body footer ul #instagram:hover {
+          color: #E1306C; }
+        html body footer ul #facebook:hover {
+          color: #4267B2; }
+        html body footer ul #pinterest:hover {
+          color: #BD081C; }
+        html body footer ul #twitter:hover {
+          color: #1DA1F2; }
 
 @media screen and (min-width: 700px) {
   header {
@@ -100,4 +139,11 @@ html {
           header nav ul li svg {
             display: none !important; }
           header nav ul li a {
-            display: block !important; } }
+            display: block !important; }
+  footer {
+    padding: 0 3rem !important;
+    height: 100px !important; }
+    footer ul {
+      width: 15% !important; }
+      footer ul a {
+        font-size: 130% !important; } }
