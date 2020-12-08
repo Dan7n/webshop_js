@@ -11,16 +11,14 @@
 }
 
 @mixin delete-animations {
-    animation: fade-out-left 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    @keyframes fade-out-left {
+    animation: fade-out-bck 0.9s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    @keyframes fade-out-bck {
         0% {
-            -webkit-transform: translateX(0);
-            transform: translateX(0);
+            transform: translateZ(0);
             opacity: 1;
         }
         100% {
-            -webkit-transform: translateX(-50px);
-            transform: translateX(-50px);
+            transform: translateZ(-80px);
             opacity: 0;
         }
     }

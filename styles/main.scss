@@ -70,7 +70,10 @@ html {
                             background-color: rgba(11, 24, 40, 0.4);
                         }
                         &:hover svg>path {
-                            fill: rgba(240, 5, 166, 0.5284488795518207);
+                            fill: #C5B5FE;
+                        }
+                        &:hover a {
+                            color: #C5B5FE;
                         }
                         svg>path {
                             fill: #dfdfe5;
@@ -124,6 +127,7 @@ html {
                     &:hover a {
                         text-decoration: underline;
                         font-weight: 400 !important;
+                        color: black !important;
                     }
                     svg {
                         display: none !important;
