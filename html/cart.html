@@ -60,6 +60,46 @@
 
     <article class="cart-contanier">
         <section class="cart-items"></section>
+        <section class="checkout-container">
+            <h1>Checkout Form</h1>
+            <section class="form-body">
+                <form id="form" autocomplete="off">
+
+                    <div class="name">
+                        <label>First Name<span class="req">*</span></label>
+                        <input type="text" required autocomplete="off" />
+                    </div>
+
+                    <div>
+                        <label>Last Name<span class="req">*</span></label>
+                        <input type="text" required autocomplete="off" />
+                    </div>
+
+                    <div>
+                        <label>Adress<span class="req">*</span></label>
+                        <input type="text" required autocomplete="off" />
+                    </div>
+
+                    <div>
+                        <label>Credit Card Number<span class="req">*</span></label>
+                        <input type="number" required autocomplete="off" />
+                    </div>
+
+                    <div class="credit-card-details">
+                        <label>Expiration Date<span class="req">*</span></label>
+                        <input type="month" required autocomplete="off" maxlength="4" />
+                    </div>
+                    <div>
+                        <label>CCV<span class="req">*</span></label>
+                        <input type="number" required autocomplete="off" maxlength="3" />
+                    </div>
+
+                    <a class="submit">Pay and Checkout</a>
+                </form>
+                <!-- <img src="./../assets/teamwork.svg" /> -->
+            </section>
+
+        </section>
     </article>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>

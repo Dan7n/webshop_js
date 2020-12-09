@@ -63,7 +63,9 @@ html {
             html body header nav ul li:hover {
               background-color: rgba(11, 24, 40, 0.4); }
             html body header nav ul li:hover svg > path {
-              fill: rgba(240, 5, 166, 0.528449); }
+              fill: #C5B5FE; }
+            html body header nav ul li:hover a {
+              color: #C5B5FE; }
             html body header nav ul li svg > path {
               fill: #dfdfe5; }
             html body header nav ul li a {
@@ -135,7 +137,8 @@ html {
             background-color: inherit !important; }
           header nav ul li:hover a {
             text-decoration: underline;
-            font-weight: 400 !important; }
+            font-weight: 400 !important;
+            color: black !important; }
           header nav ul li svg {
             display: none !important; }
           header nav ul li a {

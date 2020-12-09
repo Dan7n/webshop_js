@@ -27,7 +27,7 @@ $(function() {
     //products => chocolate catagory
     let chocolate_1 = new Product("Reese's, Holiday Assorted Trees Gusset Bag", "Chocolate", 46, "../assets/products/cat_chocolate/reeses.jpeg", id++, "The delicious combination of milk chocolate and peanut butter or white crème and peanut butter", 0);
     let chocolate_2 = new Product("M&M'S Peanut Chocolate Candy, 38-Ounce Party Size Bag", "Chocolate", 99, "../assets/products/cat_chocolate/m&ms.jpeg", id++, "Made with roasted peanuts and real milk chocolate, M&M'S Peanut Chocolate Candy is a favorite party candy", 0);
-    let chocolate_3 = new Product("Minis Size Chocolate Candy Bars Variety Mix", "Chocolate", 119, "../assets/products/cat_chocolate/m&ms.jpeg", id++, "These mini-sized bars of chocolate are fantastic for sharing with friends and family", 0);
+    let chocolate_3 = new Product("Minis Size Chocolate Candy Bars Variety Mix", "Chocolate", 119, "../assets/products/cat_chocolate/snack-mix.jpeg", id++, "These mini-sized bars of chocolate are fantastic for sharing with friends and family", 0);
     let chocolate_4 = new Product("DOVE PROMISES Dark Chocolate Candy Bag", "Chocolate", 43, "../assets/products/cat_chocolate/dove.jpeg", id++, "Made with real dark chocolate for a delicious afternoon snack", 0);
     let chocolate_5 = new Product("Hershey's, Milk Chocolate Candy Bars", "Chocolate", 52, "../assets/products/cat_chocolate/hersheys.png", id++, "Milk Chocolate [Cane Sugar, Milk, Chocolate, Cocoa Butter, Milk Fat, Lecithin (Soy), Natural Flavor].", 0);
     let chocolate_6 = new Product("Kisses Milk Chocolate Candy, Holiday Candy Bag", "Chocolate", 99, "../assets/products/cat_chocolate/kisses.jpeg", id++, "Milk Chocolate [Cane Sugar, Milk, Chocolate, Cocoa Butter, Milk Fat, Lecithin (Soy), Natural Flavor].", 0);
@@ -85,7 +85,7 @@ function addProductsHtml() {
 
             productButton.text("Added to cart!");
             productButton.addClass("addedToCart");
-            window.setTimeout(()=> {
+            window.setTimeout(() => {
                 productButton.text("Add to cart!");
                 productButton.removeClass("addedToCart");
             }, 4000);
@@ -160,9 +160,9 @@ function productCart() {
 
             let changeAmmountProductInput = $("<input></input>");
             changeAmmountProductInput.attr("type", "number").attr("value", cartProduct.inCart).on('keypress', (event) => {
-                if(event.key === 'Enter') {
+                if (event.key === 'Enter') {
                     cartProduct.inCart = parseInt(changeAmmountProductInput.val());
-                    sum += (cartProduct.price * (cartProduct.inCart-1));
+                    sum += (cartProduct.price * (cartProduct.inCart - 1));
                     totalPrice.html("Total: " + sum + " kr");
 
                 }
@@ -175,12 +175,10 @@ function productCart() {
 
             cartProductWrapper.appendTo($("#cart"));
 
-            
+
         })
         let totalPrice = $("<p></p>");
         totalPrice.html("Total: " + sum + " kr").appendTo($("#cart"));
-        
-
 
         //note to self: add function to remove items from local storage when removing items from cart
         //saving the array to local storage so that it can be used when the user clicks on the Cart tab
