@@ -14,6 +14,12 @@ html {
     font-family: 'Raleway', sans-serif;
     body {
         background-image: none;
+        header {
+            nav {
+                position: fixed;
+            }
+        }
+        
         #cartDialogButton{
             display: flex;
             justify-content: flex-end;
@@ -26,9 +32,11 @@ html {
                 font-size: 140%;
                 padding: 1.5rem;
                 color: rgb(70, 70, 70);
+                position: fixed;
             }
         }
         .myDialogClass{
+            position: fixed;
             width: 550;
             height: 600;
             @media screen and (max-width: 700px) {
@@ -171,6 +179,9 @@ html {
                     background-color: rgb(144, 211, 255);
                 }
             }
+        }
+        footer {
+            position: static;
         }
     }
 }
