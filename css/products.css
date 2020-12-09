@@ -10,29 +10,56 @@ html {
   font-family: 'Raleway', sans-serif; }
   html body {
     background-image: none; }
+    html body header nav {
+      position: fixed; }
     html body #cartDialogButton {
       display: flex;
       justify-content: flex-end;
-      position: sticky;
-      top: 40px; }
-      html body #cartDialogButton #temporaryCart {
+      top: 4rem; }
+      html body #cartDialogButton button {
         border: none;
         background-color: inherit;
         font-family: inherit;
         font-size: 140%;
-        padding: 20px; }
+        padding: 1.5rem;
+        color: #464646;
+        position: fixed; }
+    html body .myDialogClass {
+      position: fixed;
+      width: 550;
+      height: 600; }
+      @media screen and (max-width: 700px) {
+        html body .myDialogClass {
+          width: 100%;
+          height: 100vh; } }
+    html body .myDialogClass,
+    html body .ui-dialog-titlebar {
+      display: none; }
+    html body .ui-dialog-buttonpane,
+    html body .ui-dialog-buttonset {
+      display: flex;
+      justify-content: space-evenly; }
+      html body .ui-dialog-buttonpane button,
+      html body .ui-dialog-buttonset button {
+        font-family: 'Raleway', sans-serif; }
     html body #cart {
       padding: 0 0;
       text-align: center;
-      font-family: 'Raleway', sans-serif; }
+      font-family: 'Raleway', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; }
+      html body #cart .emptyCartTitle {
+        color: #ef476f;
+        font-size: 1.5rem;
+        padding: 3rem 0; }
       html body #cart div {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        height: 50px;
-        margin: 20px 0px;
-        border: 1px solid grey; }
+        height: 70px;
+        margin: 20px 0px; }
         html body #cart div img {
           height: 100%; }
         html body #cart div button {
@@ -41,8 +68,9 @@ html {
         html body #cart div input {
           width: 30px; }
       html body #cart p {
+        margin-top: auto;
         font-weight: bold;
-        margin: 10px 0px; }
+        font-size: 150%; }
       html body #cart button {
         border: 1px solid black;
         font-family: inherit;
@@ -55,12 +83,25 @@ html {
       align-items: center;
       gap: 20px;
       padding: 40px; }
+      @media screen and (max-width: 700px) {
+        html body #sortButtonContainer {
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 25px;
+          padding: 10px 50px; } }
       html body #sortButtonContainer button {
         border: none;
         background-color: inherit;
+        color: #464646;
         font-family: inherit;
         font-size: 140%;
         border-bottom: 2px solid gray; }
+        @media screen and (max-width: 700px) {
+          html body #sortButtonContainer button {
+            font-size: 100%; } }
+      html body #sortButtonContainer button:hover {
+        border-bottom: 2px solid black;
+        color: black; }
     html body #productContainer {
       margin: 40px 0px;
       display: flex;
@@ -70,14 +111,23 @@ html {
       flex-wrap: wrap;
       gap: 50px;
       padding: 10px; }
+      @media screen and (max-width: 700px) {
+        html body #productContainer {
+          flex-direction: column; } }
       html body #productContainer div {
         width: 20%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly; }
+        @media screen and (max-width: 700px) {
+          html body #productContainer div {
+            width: 60%; } }
         html body #productContainer div img {
           height: 145px; }
+          @media screen and (max-width: 700px) {
+            html body #productContainer div img {
+              height: 240px; } }
         html body #productContainer div p {
           margin: 10px 0px; }
         html body #productContainer div button {
@@ -85,5 +135,10 @@ html {
           padding: 10px;
           font-family: inherit;
           margin: 10px 0px; }
+          @media screen and (max-width: 700px) {
+            html body #productContainer div button {
+              padding: 20px; } }
         html body #productContainer div .addedToCart {
           background-color: #90d3ff; }
+    html body footer {
+      position: static; }

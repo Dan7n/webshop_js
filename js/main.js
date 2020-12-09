@@ -57,7 +57,7 @@ $(function() {
     let soda_4 = new Product("(2 pack) Mtn Dew Frost Bite", "Soda", 89, "../assets/products/cat_soda/mountain-dew.jpeg", id++, "Introducing MTN DEW FROST, the taste that chills!", 0);
     let soda_5 = new Product("(2 Pack) Coke Zero Sugar Diet Soda Soft Drink", "Soda", 123, "../assets/products/cat_soda/cola-zero.jpeg", id++, "Coca-Cola Zero Sugar has more real Coca-Cola flavor, still without any sugar", 0);
     let soda_6 = new Product("Dr Pepper & Cream Soda", "Soda", 69, "../assets/products/cat_soda/dr-pepper.jpeg", id++, "The 23 signature flavors of Dr Pepper & Cream Soda are blended to create one satisfyingly unique beverage. Other sodas can try, but only Dr Pepper can crush your craving for flavor", 0);
-    products.push(soda_1, soda_2, soda_3, soda_4, soda_5, soda_6)
+    products.push(soda_1, soda_2, soda_3, soda_4, soda_5, soda_6);
 
     addProductsHtml();
     pickProductCategory();
@@ -145,7 +145,7 @@ function pickProductCategory() {
 function productCart() {
     if (cart.length === 0) {
         $("#cart").html(" ");
-        $("<h2></h2>").text("Your cart is empty!").appendTo($("#cart"));
+        $("<h2></h2>").text("Oops! Looks like your cart is empty").addClass("emptyCartTitle").appendTo($("#cart"));
     } else {
         let sum = 0;
         $("#cart").html(" ");
@@ -179,10 +179,6 @@ function productCart() {
         })
         let totalPrice = $("<p></p>");
         totalPrice.html("Total: " + sum + " kr").appendTo($("#cart"));
-        $("<button></button>").attr("type", "button").text("Go To Checkout!").on('click', () => {
-            window.open("cart.html", "_self");
-        }).appendTo($("#cart"));
-
 
         //note to self: add function to remove items from local storage when removing items from cart
         //saving the array to local storage so that it can be used when the user clicks on the Cart tab
@@ -192,9 +188,29 @@ function productCart() {
 
     $("#cart").dialog({
         autoOpen: false,
-        height: "600",
-        width: "550",
-        position: { my: "left top", at: "left top", of: "#temporaryCart" }
+        width: "auto",
+        create: function( event, ui ) {
+            // Set maxWidth
+            $(this).css("maxWidth", "550px");
+
+          },
+        position: { my: "left top", at: "left top", of: "#temporaryCart" },
+        dialogClass: 'myDialogClass',
+        buttons: [
+            {
+                text:"Go To Checkout!",
+                click:function () {
+                    window.open("cart.html","_self");
+                }
+            },
+            {
+                text: "Close Cart!",
+
+                click: function() {
+                $( this ).dialog( "close" );
+            }},
+            
+        ]
     });
 
     $("#temporaryCart").on('click', () => {

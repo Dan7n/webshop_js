@@ -97,6 +97,56 @@ html {
                 }
             }
         }
+        footer {
+            position: fixed;
+            bottom: 0;
+            height: 12vh;
+            width: 100%;
+            background-color: rgba(11, 24, 40, 0.3);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem 0 4rem;
+            color: #dfdfe5;
+            #adress {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                span {
+                    font-size: 90%;
+                }
+                a {
+                    font-size: 90%;
+                    color: inherit;
+                }
+            }
+            ul {
+                width: 30%;
+                height: 100%;
+                list-style-type: none;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+    
+                a {
+                    font-size: 120%;
+                    color: inherit;
+                    text-decoration: none;
+                }
+                #instagram:hover {
+                    color: #E1306C;
+                }
+                #facebook:hover {
+                    color: #4267B2;
+                }
+                #pinterest:hover {
+                    color: #BD081C;
+                }
+                #twitter:hover {
+                    color: #1DA1F2;
+                }
+            }
+        }
     }
 }
 
@@ -136,6 +186,16 @@ html {
                         display: block !important;
                     }
                 }
+            }
+        }
+    }
+    footer {
+        padding: 0 3rem !important;
+        height: 100px !important;
+        ul {
+            width: 15% !important;
+            a {
+                font-size: 130% !important;
             }
         }
     }

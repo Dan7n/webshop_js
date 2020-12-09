@@ -14,70 +14,124 @@ html {
     font-family: 'Raleway', sans-serif;
     body {
         background-image: none;
+        header {
+            nav {
+                position: fixed;
+            }
+        }
+        
         #cartDialogButton{
             display: flex;
             justify-content: flex-end;
-            position: sticky;
-            top: 40px;
+            top: 4rem;
 
-            #temporaryCart {
-                border: none;
-                background-color: inherit;
-                font-family: inherit;
-                font-size: 140%;
-                padding: 20px;
-            }
-        }
-            #cart {
-                padding: 0 0;
-                text-align: center;
-                font-family: 'Raleway', sans-serif;            
-
-                div{
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    align-items: center;
-                    height: 50px;
-                    margin: 20px 0px;
-                    border: 1px solid grey;                       
-                    img {
-                        height: 100%;
-                    }
-                    button {
-                        background-color: transparent;
-                        border: none;
-                    }
-                    input {
-                        width: 30px;
-                    }
-                    
-                }
-                p {
-                    font-weight: bold;
-                    margin: 10px 0px;
-                }
-                
-                button {
-                    border: 1px solid black;
-                    font-family: inherit;
-                    font-size: 140%;
-                    padding: 5px;
-                    margin: 10px 0px;
-                }
-            }   
-        #sortButtonContainer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            padding: 40px;
             button {
                 border: none;
                 background-color: inherit;
                 font-family: inherit;
                 font-size: 140%;
+                padding: 1.5rem;
+                color: rgb(70, 70, 70);
+                position: fixed;
+            }
+        }
+        .myDialogClass{
+            position: fixed;
+            width: 550;
+            height: 600;
+            @media screen and (max-width: 700px) {
+                width: 100%;
+                height: 100vh;
+            }
+        }
+        .myDialogClass,
+        .ui-dialog-titlebar {
+            display:none
+        }
+        .ui-dialog-buttonpane, 
+        .ui-dialog-buttonset {
+            display: flex;
+            justify-content: space-evenly;
+
+            button {
+                font-family: 'Raleway', sans-serif;   
+            }
+        }
+        
+        #cart {
+            padding: 0 0;
+            text-align: center;
+            font-family: 'Raleway', sans-serif;   
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+                
+
+            .emptyCartTitle {
+                color: $faliure;
+                font-size: 1.5rem;
+                padding: 3rem 0;
+            }         
+
+            div{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                height: 70px;
+                margin: 20px 0px;
+                img {
+                    height: 100%;
+                }
+                button {
+                    background-color: transparent;
+                    border: none;
+                }
+                input {
+                    width: 30px;
+                }
+                    
+            }
+            p {
+                margin-top: auto;
+                font-weight: bold;
+                font-size: 150%;
+            }
+                
+            button {
+                border: 1px solid black;
+                font-family: inherit;
+                font-size: 140%;
+                padding: 5px;
+                margin: 10px 0px;
+            }
+        }   
+        #sortButtonContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 40px ;
+            @media screen and (max-width: 700px) {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 25px;
+                padding: 10px 50px;
+            }
+            button {
+                border: none;
+                background-color: inherit;
+                color: rgb(70, 70, 70);
+                font-family: inherit;
+                font-size: 140%;
                 border-bottom: 2px solid gray;
+                @media screen and (max-width: 700px) {
+                    font-size: 100%;
+                }
+            }
+            button:hover {
+                border-bottom: 2px solid black;
+                color: black;
             }
         }
         
@@ -90,16 +144,24 @@ html {
             flex-wrap: wrap;
             gap: 50px;
             padding: 10px;
-
+            @media screen and (max-width: 700px) {
+                flex-direction: column;
+            }
             div {
                 width: 20%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: space-evenly;
+                @media screen and (max-width: 700px) {
+                    width: 60%;
+                }
                 
                 img{
                     height: 145px;
+                    @media screen and (max-width: 700px) {
+                        height: 240px;
+                    }
                 }
                 p {
                     margin: 10px 0px;
@@ -109,11 +171,17 @@ html {
                     padding: 10px;
                     font-family: inherit;
                     margin: 10px 0px;
+                    @media screen and (max-width: 700px) {
+                        padding: 20px;
+                    }
                 }
                 .addedToCart {
                     background-color: rgb(144, 211, 255);
                 }
             }
+        }
+        footer {
+            position: static;
         }
     }
 }
