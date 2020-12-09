@@ -11,8 +11,7 @@ body {
     background: linear-gradient(262deg, #f9dcc4, #cbc0d3) !important;
     background-size: 400% 400%;
     width: 100% !important;
-    height: 100%;
-    // overflow: hidden;
+    height: 100% !important;
     @keyframes backgroundAnimation_cart {
         0% {
             background-position: 0% 50%
@@ -29,8 +28,7 @@ body {
     }
     .cart-contanier {
         width: 100%;
-        // height: 100% !important;
-        overflow: scroll;
+        overflow: hidden;
         @include center-all;
         flex-direction: column;
         .cart-items {
@@ -266,9 +264,10 @@ body {
     }
     @media screen and (max-width: 700px) {
         .cart-items {
-            overflow: scroll;
+            // overflow: hidden !important;
             justify-content: center;
             align-items: center;
+            height: 88vh !important;
         }
         .cart-item-container {
             width: 85% !important;

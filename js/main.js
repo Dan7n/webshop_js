@@ -189,27 +189,27 @@ function productCart() {
     $("#cart").dialog({
         autoOpen: false,
         width: "auto",
-        create: function( event, ui ) {
+        create: function(event, ui) {
             // Set maxWidth
             $(this).css("maxWidth", "550px");
 
-          },
+        },
         position: { my: "left top", at: "left top", of: "#temporaryCart" },
         dialogClass: 'myDialogClass',
-        buttons: [
-            {
-                text:"Go To Checkout!",
-                click:function () {
-                    window.open("cart.html","_self");
+        buttons: [{
+                text: "Go To Checkout!",
+                click: function() {
+                    window.open("cart.html", "_self");
                 }
             },
             {
                 text: "Close Cart!",
 
                 click: function() {
-                $( this ).dialog( "close" );
-            }},
-            
+                    $(this).dialog("close");
+                }
+            },
+
         ]
     });
 

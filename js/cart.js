@@ -1,19 +1,27 @@
 $(function() {
 
+    window.addEventListener("storage", () => {
+        console.log("stuff is happening")
+    })
+
+
     $(".checkout-container").hide()
-        // // $("#form").hide();
-
     let listOfPrices = [];
-
     let sessionStorageCheck = sessionStorage.getItem(["cart"]);
+
+    function emptyCart() {
+        console.log("empty");
+        $(".cart-items").attr("id", "emptyCart");
+        $("<h1>").text("Opps! Looks like your cart is empty").addClass("cart-empty-h1").appendTo($(".cart-items"));
+        $("<p>").html("You're only a few clicks away from a cozy evening!<br>Go back to our products page and fill your cart with some delicious candy!").addClass("cart-empty-p").appendTo($(".cart-items"));
+        $("<a>").attr("href", "./products.html").text("Products Page").addClass("cart-empty-btn").appendTo($(".cart-items"));
+        $("<img>").attr("src", "./../assets/empty-cart.svg").addClass("cart-empty-svg").appendTo($(".cart-items"));
+    }
+
+
     // in case you have items in your carts
     if (sessionStorageCheck || sessionStorageCheck === "") {
         let objectsFromSessionStorage = JSON.parse(sessionStorage["cart"]);
-
-        // function updateSessionStorage(val) {
-        //     updatedStorage = JSON.parse(sessionStorage["cart"]);
-        //     Object.values()
-        // }
 
         const wrapper = $("<div>");
         wrapper.addClass("wrapper").appendTo($(".cart-items"));
@@ -39,11 +47,23 @@ $(function() {
                     //remove item from cart, remove object from array, update sessionStorage
                     if (parent.attr("id") == relatedObject.id) {
                         objectsFromSessionStorage.splice(relatedObject, 1)
+                        listOfPrices.splice(relatedObject, 1);
+
                         parent.addClass("deleted").on("animationend", () => {
                                 parent.remove();
+
+                                //if user removes all items from the cart, re-direct to empty page and clear sessionStorage
+
+                                if ($(".wrapper").children().length >= 0) {
+                                    $(".price-container").remove();
+                                    emptyCart()
+                                    sessionStorage.clear()
+                                }
                             })
                             //update sessionStorage
                         sessionStorage.setItem(["cart"], JSON.stringify(objectsFromSessionStorage))
+                        console.log(getTotalPrice())
+
                     }
                 })
                 //allowing user to change quantity of item in the cart
@@ -54,6 +74,8 @@ $(function() {
                 value.inCart = userInputedPrice; //setting the object's inCart value to the value inputed by the user, then changing it from string to number in order to do math operations
                 value.price = value.price * userInputedPrice;
                 console.log(value)
+
+                sessionStorage.setItem(["cart"], JSON.stringify(cart))
                 sessionStorage.setItem(["cart"], JSON.stringify(objectsFromSessionStorage))
                 console.log(objectsFromSessionStorage)
 
@@ -63,13 +85,11 @@ $(function() {
             $("<p>").html(`${value.price}SEK`).addClass("cart-item-p-price").appendTo(cartItemContainer);
             listOfPrices.push(value.price) //adds current price to a list of all prices in cart
 
-            // const priceDiv = $("<div>");
-            // priceDiv.addClass("price-div").appendTo(cartItemContainer);
-
         })
 
 
         function getTotalPrice() {
+
             let finalPrice = listOfPrices.reduce((accumulator, currentPrice) => {
                 return accumulator + currentPrice;
             }, 0);
@@ -77,18 +97,21 @@ $(function() {
         };
 
         //total price container
-        let $priceContainer = $("<div>");
-        $priceContainer.addClass("price-container").appendTo($(".cart-items"));
-        let $priceInnerDiv = $("<div>");
-        $("<h2>").text("Total price").appendTo($priceContainer);
-        $priceInnerDiv.addClass("price-inner-div").appendTo($priceContainer);
-        $("<div>").html(`<p>Items in cart:</p><p>${getTotalPrice()} SEK</p>`).appendTo($priceInnerDiv);
-        $("<div>").html(`<p>Shipping and handling:</p><p class="free">FREE!</p>`).appendTo($priceInnerDiv);
-        $("<div>").addClass("final-price").html(`<p>Final price:</p><p>${getTotalPrice()} SEK</p>`).appendTo($priceContainer);
-        $("<a>").addClass("to-checkout-btn").html("Go to checkout").appendTo($priceContainer).one("click", () => {
-            $(".checkout-container").slideDown()
-            $("<img>").attr("src", "./../assets/teamwork.svg").appendTo(".form-body")
-        });
+        function displayTotalPrice() {
+            let $priceContainer = $("<div>");
+            $priceContainer.addClass("price-container").appendTo($(".cart-items"));
+            let $priceInnerDiv = $("<div>");
+            $("<h2>").text("Total price").appendTo($priceContainer);
+            $priceInnerDiv.addClass("price-inner-div").appendTo($priceContainer);
+            $("<div>").html(`<p>Items in cart:</p><p>${getTotalPrice()} SEK</p>`).appendTo($priceInnerDiv);
+            $("<div>").html(`<p>Shipping and handling:</p><p class="free">FREE!</p>`).appendTo($priceInnerDiv);
+            $("<div>").addClass("final-price").html(`<p>Final price:</p><p>${getTotalPrice()} SEK</p>`).appendTo($priceContainer);
+            $("<a>").addClass("to-checkout-btn").html("Go to checkout").appendTo($priceContainer).one("click", () => {
+                $(".checkout-container").slideDown()
+                $("<img>").attr("src", "./../assets/teamwork.svg").appendTo(".form-body")
+            });
+        }
+        displayTotalPrice()
 
         //add gif animation of page loading, and open another page saying that the payment went through
         //checkout 
@@ -102,20 +125,7 @@ $(function() {
 
         // in case cart is empty
     } else {
-        console.log("empty");
-        $(".cart-items").attr("id", "emptyCart");
-        $("<h1>").text("Opps! Looks like your cart is empty").addClass("cart-empty-h1").appendTo($(".cart-items"));
-        $("<p>").html("You're only a few clicks away from a cozy evening!<br>Go back to our products page and fill your cart with some delicious candy!").addClass("cart-empty-p").appendTo($(".cart-items"));
-        $("<a>").attr("href", "./products.html").text("Products Page").addClass("cart-empty-btn").appendTo($(".cart-items"));
-        $("<img>").attr("src", "./../assets/empty-cart.svg").addClass("cart-empty-svg").appendTo($(".cart-items"));
+        emptyCart()
     };
-});
 
-function createAccordion() {
-    let accordionDiv = $("<div>");
-    accordionDiv.attr("id", "accordion").appendTo($(".cart-items"));
-    $("<h3>").text("placeholder").addClass("accordion-h3").appendTo(accordionDiv);
-    $("<div>").addClass("accordion-inner-div").appendTo(accordionDiv);
-    $("<h3>").text("placeholder2").addClass("accordion-h3").appendTo(accordionDiv);
-    $("<div>").addClass("accordion-inner-div").appendTo(accordionDiv);
-}
+});
