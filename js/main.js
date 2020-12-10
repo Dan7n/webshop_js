@@ -27,7 +27,7 @@ $(function() {
     //products => chocolate catagory
     let chocolate_1 = new Product("Reese's, Holiday Assorted Trees Gusset Bag", "Chocolate", 46, "../assets/products/cat_chocolate/reeses.jpeg", id++, "The delicious combination of milk chocolate and peanut butter or white crème and peanut butter", 0);
     let chocolate_2 = new Product("M&M'S Peanut Chocolate Candy, 38-Ounce Party Size Bag", "Chocolate", 99, "../assets/products/cat_chocolate/m&ms.jpeg", id++, "Made with roasted peanuts and real milk chocolate, M&M'S Peanut Chocolate Candy is a favorite party candy", 0);
-    let chocolate_3 = new Product("Minis Size Chocolate Candy Bars Variety Mix", "Chocolate", 119, "../assets/products/cat_chocolate/m&ms.jpeg", id++, "These mini-sized bars of chocolate are fantastic for sharing with friends and family", 0);
+    let chocolate_3 = new Product("Minis Size Chocolate Candy Bars Variety Mix", "Chocolate", 119, "../assets/products/cat_chocolate/snack-mix.jpeg", id++, "These mini-sized bars of chocolate are fantastic for sharing with friends and family", 0);
     let chocolate_4 = new Product("DOVE PROMISES Dark Chocolate Candy Bag", "Chocolate", 43, "../assets/products/cat_chocolate/dove.jpeg", id++, "Made with real dark chocolate for a delicious afternoon snack", 0);
     let chocolate_5 = new Product("Hershey's, Milk Chocolate Candy Bars", "Chocolate", 52, "../assets/products/cat_chocolate/hersheys.png", id++, "Milk Chocolate [Cane Sugar, Milk, Chocolate, Cocoa Butter, Milk Fat, Lecithin (Soy), Natural Flavor].", 0);
     let chocolate_6 = new Product("Kisses Milk Chocolate Candy, Holiday Candy Bag", "Chocolate", 99, "../assets/products/cat_chocolate/kisses.jpeg", id++, "Milk Chocolate [Cane Sugar, Milk, Chocolate, Cocoa Butter, Milk Fat, Lecithin (Soy), Natural Flavor].", 0);
@@ -38,7 +38,7 @@ $(function() {
     let cheeseBalls = new Product("Utz Cheese Balls", "Chips", 89, "../assets/products/cat_chips/cheeseBalls.jpeg", id++, "Have a fun and tasty food ready for the next special occasion or for every day snacking with Utz Cheese Balls. This product contains baked cheddar and is made with real cheese for a delicious taste on every piece. ", 0);
     let cheetos = new Product("Cheetos Crunchy Flamin' Hot Cheese Flavored Snacks", "Chips", 39, "../assets/products/cat_chips/cheetos.jpeg", id++, "Hot, spicy flavor packed into crunchy, cheesy snacks. CHEETOS Crunchy FLAMIN' HOT Cheese Flavored Snacks are full of flavor and made with real cheese. Cheetos snacks are the much-loved cheesy treats that are fun for everyone! You just can't eat a Cheetos snack without licking the signature 'cheetle' off your fingertips.", 0);
     let lays = new Product("Lay's Classic Potato Chips, Party Size", "Chips", 39, "../assets/products/cat_chips/lays.jpeg", id++, "It all starts with farm-grown potatoes, cooked and seasoned to perfection. So every LAY'S potato chip is perfectly crispy and full of fresh potato taste. Happiness in Every Bite. Large bag is perfect for sharing.", 0);
-    let pringles = new Product("Pringles, Potato Crisps Chips, Sour Cream & Onion Flavored", "Chips", 29, "../assets/products/cat_chips/lays.jpeg", id++, "Your favorite flavor combo of yummy sour cream and zesty onion is now in your favorite potato crisp. Deliciously seasoned Sour Cream and Onion Flavored Pringles Potato Crisps are flavored from edge to edge for a craveable taste and perfect crunch.", 0);
+    let pringles = new Product("Pringles, Potato Crisps Chips, Sour Cream & Onion Flavored", "Chips", 29, "../assets/products/cat_chips/pringles.jpeg", id++, "Your favorite flavor combo of yummy sour cream and zesty onion is now in your favorite potato crisp. Deliciously seasoned Sour Cream and Onion Flavored Pringles Potato Crisps are flavored from edge to edge for a craveable taste and perfect crunch.", 0);
     products.push(kettleSaltAndVinegar, doritos, cheeseBalls, cheetos, lays, pringles);
 
     //products => nuts catagory
@@ -80,12 +80,12 @@ function addProductsHtml() {
         productButton.attr("type", "button").text("Add To Cart!").on('click', () => {
             product.inCart++;
             if (product.inCart <= 1) {
-                cart.push(product);
+                cart.push(product);   
             }
 
             productButton.text("Added to cart!");
             productButton.addClass("addedToCart");
-            window.setTimeout(()=> {
+            window.setTimeout(() => {
                 productButton.text("Add to cart!");
                 productButton.removeClass("addedToCart");
             }, 4000);
@@ -160,9 +160,9 @@ function productCart() {
 
             let changeAmmountProductInput = $("<input></input>");
             changeAmmountProductInput.attr("type", "number").attr("value", cartProduct.inCart).on('keypress', (event) => {
-                if(event.key === 'Enter') {
+                if (event.key === 'Enter') {
                     cartProduct.inCart = parseInt(changeAmmountProductInput.val());
-                    sum += (cartProduct.price * (cartProduct.inCart-1));
+                    sum += (cartProduct.price * (cartProduct.inCart - 1));
                     totalPrice.html("Total: " + sum + " kr");
 
                 }
@@ -175,43 +175,41 @@ function productCart() {
 
             cartProductWrapper.appendTo($("#cart"));
 
-            
+
         })
         let totalPrice = $("<p></p>");
         totalPrice.html("Total: " + sum + " kr").appendTo($("#cart"));
-        
-
 
         //note to self: add function to remove items from local storage when removing items from cart
         //saving the array to local storage so that it can be used when the user clicks on the Cart tab
-        sessionStorage.setItem(["cart"], JSON.stringify(cart))
+        sessionStorage.setItem(["cart"], JSON.stringify(cart));
 
     }
 
     $("#cart").dialog({
         autoOpen: false,
         width: "auto",
-        create: function( event, ui ) {
+        create: function(event, ui) {
             // Set maxWidth
             $(this).css("maxWidth", "550px");
 
-          },
+        },
         position: { my: "left top", at: "left top", of: "#temporaryCart" },
         dialogClass: 'myDialogClass',
-        buttons: [
-            {
-                text:"Go To Checkout!",
-                click:function () {
-                    window.open("cart.html","_self");
+        buttons: [{
+                text: "Go To Checkout!",
+                click: function() {
+                    window.open("cart.html", "_self");
                 }
             },
             {
                 text: "Close Cart!",
 
                 click: function() {
-                $( this ).dialog( "close" );
-            }},
-            
+                    $(this).dialog("close");
+                }
+            },
+
         ]
     });
 
