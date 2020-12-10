@@ -38,7 +38,7 @@ $(function() {
     let cheeseBalls = new Product("Utz Cheese Balls", "Chips", 89, "../assets/products/cat_chips/cheeseBalls.jpeg", id++, "Have a fun and tasty food ready for the next special occasion or for every day snacking with Utz Cheese Balls. This product contains baked cheddar and is made with real cheese for a delicious taste on every piece. ", 0);
     let cheetos = new Product("Cheetos Crunchy Flamin' Hot Cheese Flavored Snacks", "Chips", 39, "../assets/products/cat_chips/cheetos.jpeg", id++, "Hot, spicy flavor packed into crunchy, cheesy snacks. CHEETOS Crunchy FLAMIN' HOT Cheese Flavored Snacks are full of flavor and made with real cheese. Cheetos snacks are the much-loved cheesy treats that are fun for everyone! You just can't eat a Cheetos snack without licking the signature 'cheetle' off your fingertips.", 0);
     let lays = new Product("Lay's Classic Potato Chips, Party Size", "Chips", 39, "../assets/products/cat_chips/lays.jpeg", id++, "It all starts with farm-grown potatoes, cooked and seasoned to perfection. So every LAY'S potato chip is perfectly crispy and full of fresh potato taste. Happiness in Every Bite. Large bag is perfect for sharing.", 0);
-    let pringles = new Product("Pringles, Potato Crisps Chips, Sour Cream & Onion Flavored", "Chips", 29, "../assets/products/cat_chips/lays.jpeg", id++, "Your favorite flavor combo of yummy sour cream and zesty onion is now in your favorite potato crisp. Deliciously seasoned Sour Cream and Onion Flavored Pringles Potato Crisps are flavored from edge to edge for a craveable taste and perfect crunch.", 0);
+    let pringles = new Product("Pringles, Potato Crisps Chips, Sour Cream & Onion Flavored", "Chips", 29, "../assets/products/cat_chips/pringles.jpeg", id++, "Your favorite flavor combo of yummy sour cream and zesty onion is now in your favorite potato crisp. Deliciously seasoned Sour Cream and Onion Flavored Pringles Potato Crisps are flavored from edge to edge for a craveable taste and perfect crunch.", 0);
     products.push(kettleSaltAndVinegar, doritos, cheeseBalls, cheetos, lays, pringles);
 
     //products => nuts catagory
@@ -80,7 +80,7 @@ function addProductsHtml() {
         productButton.attr("type", "button").text("Add To Cart!").on('click', () => {
             product.inCart++;
             if (product.inCart <= 1) {
-                cart.push(product);
+                cart.push(product);   
             }
 
             productButton.text("Added to cart!");
@@ -182,7 +182,7 @@ function productCart() {
 
         //note to self: add function to remove items from local storage when removing items from cart
         //saving the array to local storage so that it can be used when the user clicks on the Cart tab
-        sessionStorage.setItem(["cart"], JSON.stringify(cart))
+        sessionStorage.setItem(["cart"], JSON.stringify(cart));
 
     }
 
