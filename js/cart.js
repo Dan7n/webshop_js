@@ -9,7 +9,7 @@ function emptyCart() {
 
 $(function() {
 
-
+    $("input").attr("required", true);
     $(".checkout-container").hide()
     let listOfPrices = [];
     let sessionStorageCheck = sessionStorage.getItem(["cart"]);
@@ -124,9 +124,15 @@ $(function() {
             $("<div>").html(`<p>Items in cart:</p><p>${getTotalPrice()} SEK</p>`).appendTo($priceInnerDiv);
             $("<div>").html(`<p>Shipping and handling:</p><p class="free">FREE!</p>`).appendTo($priceInnerDiv);
             $("<div>").addClass("final-price").html(`<p>Final price:</p><p>${getTotalPrice()} SEK</p>`).appendTo($priceContainer);
-            $("<a>").addClass("to-checkout-btn").html("Go to checkout").appendTo($priceContainer).one("click", () => {
+            $("<a>").addClass("to-checkout-btn").html("Go to checkout").appendTo($priceContainer).one("click", function() {
+                $("footer").addClass("static-position");
                 $(".checkout-container").slideDown()
                 $("<img>").attr("src", "./../assets/teamwork.svg").appendTo(".form-body")
+                console.log($(this))
+                $(this).animate({
+                    scrollTop: $("#scrollHere").offset().top
+                }, 1500);
+
             });
         }
         displayTotalPrice()
@@ -141,6 +147,7 @@ $(function() {
 
                 setTimeout(() => {
                     loadingContainer.remove();
+                    window.open("./../html/orderConfirmation.html");
                 }, 5000)
             })
             // in case cart is empty, run the function defined at the top of this page

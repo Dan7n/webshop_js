@@ -1,0 +1,1 @@
+"use strict";$((function(){var r=Math.floor(1e9*Math.random())+1;$("#confirmationNumber").html("Your order number is: ".concat(r))}));

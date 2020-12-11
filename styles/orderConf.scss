@@ -1,0 +1,65 @@
+@import 'variables/_mixins.scss';
+@import 'variables/_var.scss';
+body {
+    background: none, url("./../../assets/orderConf.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    width: 100% !important;
+    position: relative;
+    // display: flex !important;
+    // flex-direction: column !important;
+    section {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 40%;
+        width: 45%;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 6px;
+        @include center-all;
+        article {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-content: space-between;
+            div {
+                text-align: center;
+            }
+            div:nth-child(1) {
+                padding-top: 1rem;
+                font-size: 1.2rem;
+                color: $sucess-dark;
+            }
+            div:nth-child(2) {
+                line-height: 1.1rem;
+                p:first-child {
+                    padding-bottom: 2rem;
+                }
+                a {
+                    color: $purpile-blue;
+                    font-weight: 500;
+                    cursor: pointer;
+                    &:hover {
+                        text-decoration: underline $purpile-blue;
+                    }
+                }
+            }
+            div:nth-child(3) {
+                padding-bottom: 3rem;
+                a {
+                    @include a-btn;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    section {
+        width: 70% !important;
+        height: 50% !important;
+        margin-left: 2.5rem;
+    }
+}
