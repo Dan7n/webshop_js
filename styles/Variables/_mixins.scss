@@ -24,6 +24,20 @@
     }
 }
 
+@mixin a-btn {
+    text-decoration: none;
+    padding: .6rem 1.4rem;
+    font-size: 1rem;
+    border: 1px solid $purpile-blue;
+    color: $purpile-blue;
+    box-shadow: -11px 10px 13px -1px rgba(0, 0, 0, 0.31);
+    transition: all ease 150ms;
+    &:hover {
+        background-color: $purpile-blue;
+        color: white;
+    }
+}
+
 @mixin box-shadow {
     -webkit-box-shadow: -6px 7px 9px 2px rgba(50, 50, 50, 0.55);
     -moz-box-shadow: -6px 7px 9px 2px rgba(50, 50, 50, 0.55);
