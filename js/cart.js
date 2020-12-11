@@ -1,5 +1,5 @@
+//function to controll if the cart is empty
 function emptyCart() {
-    console.log("empty");
     $(".cart-items").attr("id", "emptyCart");
     $("<h1>").text("Opps! Looks like your cart is empty").addClass("cart-empty-h1").appendTo($(".cart-items"));
     $("<p>").html("You're only a few clicks away from a cozy evening!<br>Go back to our products page and fill your cart with some delicious candy!").addClass("cart-empty-p").appendTo($(".cart-items"));
@@ -38,10 +38,7 @@ $(function() {
         const wrapper = $("<div>");
         wrapper.addClass("wrapper").appendTo($(".cart-items"));
 
-        // console.log(objectsFromSessionStorage)
         $.each(objectsFromSessionStorage, (i, value) => {
-            //individual cart item divs
-
             let cartItemContainer = $("<div>");
             cartItemContainer.addClass("cart-item-container").attr("id", value.id).appendTo(wrapper);
             $("<img>").attr("src", value.image).addClass("cart-item-image").appendTo(cartItemContainer);
@@ -67,13 +64,13 @@ $(function() {
                                 //if user removes all items from the cart, re-direct to empty page and clear sessionStorage
                                 if ($(".wrapper").children().length >= 0) {
                                     $(".price-container").remove();
+                                    $(".checkout-container").hide();
                                     emptyCart()
                                     sessionStorage.clear()
                                 }
                             })
                             //update sessionStorage
                         sessionStorage.setItem(["cart"], JSON.stringify(objectsFromSessionStorage))
-                        console.log(getTotalPrice())
                     }
                 })
                 //allowing user to change quantity of item in the cart
@@ -125,14 +122,10 @@ $(function() {
             $("<div>").html(`<p>Shipping and handling:</p><p class="free">FREE!</p>`).appendTo($priceInnerDiv);
             $("<div>").addClass("final-price").html(`<p>Final price:</p><p>${getTotalPrice()} SEK</p>`).appendTo($priceContainer);
             $("<a>").addClass("to-checkout-btn").html("Go to checkout").appendTo($priceContainer).one("click", function() {
+                $priceContainer.addClass("remove-margin-bottom");
                 $("footer").addClass("static-position");
                 $(".checkout-container").slideDown()
                 $("<img>").attr("src", "./../assets/teamwork.svg").appendTo(".form-body")
-                console.log($(this))
-                $(this).animate({
-                    scrollTop: $("#scrollHere").offset().top
-                }, 1500);
-
             });
         }
         displayTotalPrice()
@@ -141,18 +134,44 @@ $(function() {
         //checkout 
         let $checkoutBtn = $(".submit");
         $checkoutBtn.on("click", () => {
+
+            //basic form validation: make sure all the fields are filled with data before allowing user to submit
+            const $formInputs = $(".validate");
+            if ($formInputs.hasClass("validation-failure")) {
+                $formInputs.removeClass("validation-failure");
+            }
+
+            let $isFormValid;
+            $formInputs.each(function() {
+                if ($(this).val() === "") {
+                    $isFormValid = false;
+                } else {
+                    $isFormValid = true;
+                }
+            })
+
+            if ($isFormValid === false) {
+                $formInputs.filter(function() {
+                    return $(this).val() === "";
+                }).addClass("validation-failure");
+                $checkoutBtn.attr("title", "Please make sure to fill all the remaining form fields");
+                $(document).tooltip();
+
+                //allow order to be submitted if all form inputs are filled with data
+            } else {
                 let loadingContainer = $("<div>");
                 loadingContainer.attr("id", "loadingContainer").html("<h1>Please wait while we process your payment!</h1>").appendTo("body")
                 $("<img>").attr("src", "./../assets/loading-icon.svg").attr("id", "loadingImg").appendTo(loadingContainer);
-
                 setTimeout(() => {
+                    sessionStorage.clear()
                     loadingContainer.remove();
-                    window.open("./../html/orderConfirmation.html");
+                    window.open("./../html/orderConfirmation.html", "_self");
                 }, 5000)
-            })
-            // in case cart is empty, run the function defined at the top of this page
+            }
+        })
+
+        // in case cart is empty, run the function defined at the top of this page
     } else {
         emptyCart()
     };
-
 });

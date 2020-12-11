@@ -7,7 +7,6 @@ html {
 
 body {
     background-image: none !important;
-    // background-color: rgba(151, 157, 172, .6) !important;
     background: linear-gradient(262deg, #f9dcc4, #cbc0d3) !important;
     background-size: 400% 400%;
     width: 100% !important;
@@ -198,6 +197,7 @@ body {
             flex-direction: row;
             justify-content: flex-start;
             align-items: flex-start;
+            overflow: hidden;
             span {
                 color: $manditory;
                 font-size: 1.3rem;
@@ -222,6 +222,9 @@ body {
                 gap: 1rem;
                 margin-bottom: 4rem;
                 z-index: 4;
+                .validation-failure {
+                    border-color: $faliure;
+                }
                 div {
                     width: 50%;
                     display: flex;
@@ -304,15 +307,19 @@ footer {
             width: 100% !important;
         }
         .price-container {
-            margin: 10px 1rem !important;
-            width: calc(100% - 1rem) !important; // position: static !important;
+            margin: 10px 1rem 6rem 1rem !important;
+            width: calc(100% - 1rem) !important;
+            transition: margin-bottom 100ms ease-in;
+        }
+        .remove-margin-bottom {
+            margin-bottom: 2rem !important;
         }
     }
     .inner-div {
         margin-left: 3rem !important;
     }
     footer {
-        position: static !important;
+        position: fixed !important;
         bottom: 0 !important;
         left: 0 !important;
     }
@@ -328,10 +335,8 @@ footer {
         flex-direction: column;
     }
     .cart-items {
-        // overflow: hidden !important;
         justify-content: center;
         align-items: center;
-        // height: 88vh !important;
     }
     .cart-item-container {
         width: 85% !important;
@@ -348,15 +353,23 @@ footer {
     }
     .checkout-container {
         margin-left: 4rem !important;
+        .form-body {
+            width: 100% !important;
+        }
         img {
             display: none;
         }
+        div {
+            width: 90% !important;
+            label {
+                width: fit-content !important;
+            }
+            input {
+                width: 200px !important;
+            }
+        }
+    }
+    footer {
+        position: fixed !important;
     }
 }
-
-// .static-position {
-//     position: static !important;
-//     bottom: 0 !important;
-//     left: 0 !important;
-//     z-index: 10 !important;
-// }

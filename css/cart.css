@@ -169,7 +169,8 @@ body {
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
-      align-items: flex-start; }
+      align-items: flex-start;
+      overflow: hidden; }
       body .checkout-container .form-body span {
         color: #db222a;
         font-size: 1.3rem; }
@@ -191,6 +192,8 @@ body {
         gap: 1rem;
         margin-bottom: 4rem;
         z-index: 4; }
+        body .checkout-container .form-body form .validation-failure {
+          border-color: #ef476f; }
         body .checkout-container .form-body form div {
           width: 50%;
           display: flex;
@@ -256,12 +259,15 @@ footer {
     .cart-items .wrapper {
       width: 100% !important; }
     .cart-items .price-container {
-      margin: 10px 1rem !important;
-      width: calc(100% - 1rem) !important; }
+      margin: 10px 1rem 6rem 1rem !important;
+      width: calc(100% - 1rem) !important;
+      transition: margin-bottom 100ms ease-in; }
+    .cart-items .remove-margin-bottom {
+      margin-bottom: 2rem !important; }
   .inner-div {
     margin-left: 3rem !important; }
   footer {
-    position: static !important;
+    position: fixed !important;
     bottom: 0 !important;
     left: 0 !important; } }
 
@@ -290,5 +296,15 @@ footer {
       padding-bottom: 1rem; }
   .checkout-container {
     margin-left: 4rem !important; }
+    .checkout-container .form-body {
+      width: 100% !important; }
     .checkout-container img {
-      display: none; } }
+      display: none; }
+    .checkout-container div {
+      width: 90% !important; }
+      .checkout-container div label {
+        width: fit-content !important; }
+      .checkout-container div input {
+        width: 200px !important; }
+  footer {
+    position: fixed !important; } }
