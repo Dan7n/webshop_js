@@ -43,6 +43,7 @@ body {
                     cursor: pointer;
                     &:hover {
                         text-decoration: underline $purpile-blue;
+                        background-color: $chill-blue !important;
                     }
                 }
             }

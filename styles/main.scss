@@ -183,6 +183,11 @@ html {
     footer {
         padding: 0 3rem !important;
         height: 100px !important;
+        transition: background-color ease-in-out 200ms;
+        z-index: 5;
+        &:hover {
+            background-color: rgba(11, 24, 40, 1) !important;
+        }
         ul {
             width: 15% !important;
             a {

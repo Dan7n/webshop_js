@@ -1,6 +1,5 @@
 @import 'variables/_mixins.scss';
 @import 'variables/_var.scss';
-
 * {
     margin: 0;
     padding: 0;
@@ -13,18 +12,17 @@ html {
     scroll-behavior: smooth;
     font-family: 'Raleway', sans-serif;
     body {
-        background-image: none;
+        // background-image: none;
+        background: linear-gradient(262deg, #f9dcc4, #cbc0d3), none !important;
         header {
             nav {
                 position: fixed;
             }
         }
-        
-        #cartDialogButton{
+        #cartDialogButton {
             display: flex;
             justify-content: flex-end;
             top: 4rem;
-
             button {
                 border: none;
                 background-color: inherit;
@@ -33,9 +31,19 @@ html {
                 padding: 1.5rem;
                 color: rgb(70, 70, 70);
                 position: fixed;
+                @media screen and (max-width: 700px) {
+                    padding: 3rem 1.5rem;
+                }
+                i {
+                    transform: scale(1.1);
+                    &:hover {
+                        color: hsl(275, 30%, 60%);
+                        cursor: pointer;
+                    }
+                }
             }
         }
-        .myDialogClass{
+        .myDialogClass {
             position: fixed;
             width: 550;
             height: 600;
@@ -46,34 +54,29 @@ html {
         }
         .myDialogClass,
         .ui-dialog-titlebar {
-            display:none
+            display: none
         }
-        .ui-dialog-buttonpane, 
+        .ui-dialog-buttonpane,
         .ui-dialog-buttonset {
             display: flex;
             justify-content: space-evenly;
-
             button {
-                font-family: 'Raleway', sans-serif;   
+                font-family: 'Raleway', sans-serif;
             }
         }
-        
         #cart {
             padding: 0 0;
             text-align: center;
-            font-family: 'Raleway', sans-serif;   
+            font-family: 'Raleway', sans-serif;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-                
-
             .emptyCartTitle {
                 color: $faliure;
                 font-size: 1.5rem;
                 padding: 3rem 0;
-            }         
-
-            div{
+            }
+            div {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
@@ -90,14 +93,12 @@ html {
                 input {
                     width: 30px;
                 }
-                    
             }
             p {
                 margin-top: auto;
                 font-weight: bold;
                 font-size: 150%;
             }
-                
             button {
                 border: 1px solid black;
                 font-family: inherit;
@@ -105,18 +106,21 @@ html {
                 padding: 5px;
                 margin: 10px 0px;
             }
-        }   
+        }
         #sortButtonContainer {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 20px;
-            padding: 40px ;
+            padding: 40px;
+            margin: 0 8%;
+            background-color: #fdfffc;
             @media screen and (max-width: 700px) {
                 flex-direction: row;
                 flex-wrap: wrap;
                 gap: 25px;
                 padding: 10px 50px;
+                margin: 0 0 0 14% !important;
             }
             button {
                 border: none;
@@ -134,7 +138,6 @@ html {
                 color: black;
             }
         }
-        
         #productContainer {
             margin: 40px 0px;
             display: flex;
@@ -144,8 +147,21 @@ html {
             flex-wrap: wrap;
             gap: 50px;
             padding: 10px;
+            margin: 0 8%;
+            background-color: #fdfffc;
+            button {
+                font-weight: 500 !important;
+                cursor: pointer !important;
+                border-radius: 4px;
+                &:hover {
+                    border: 1px solid gray;
+                    color: white !important;
+                    background-color: hsl(204, 100%, 70%);
+                }
+            }
             @media screen and (max-width: 700px) {
                 flex-direction: column;
+                margin: 0 0 0 14% !important;
             }
             div {
                 width: 20%;
@@ -156,8 +172,7 @@ html {
                 @media screen and (max-width: 700px) {
                     width: 60%;
                 }
-                
-                img{
+                img {
                     height: 145px;
                     @media screen and (max-width: 700px) {
                         height: 240px;
@@ -176,7 +191,8 @@ html {
                     }
                 }
                 .addedToCart {
-                    background-color: rgb(144, 211, 255);
+                    background-color: hsl(204, 100%, 40%);
+                    color: white;
                 }
             }
         }
