@@ -145,7 +145,11 @@ html {
             display: block !important; }
   footer {
     padding: 0 3rem !important;
-    height: 100px !important; }
+    height: 100px !important;
+    transition: background-color ease-in-out 200ms;
+    z-index: 5; }
+    footer:hover {
+      background-color: #0b1828 !important; }
     footer ul {
       width: 15% !important; }
       footer ul a {

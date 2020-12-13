@@ -59,10 +59,18 @@ $(function() {
     let soda_6 = new Product("Dr Pepper & Cream Soda", "Soda", 69, "../assets/products/cat_soda/dr-pepper.jpeg", id++, "The 23 signature flavors of Dr Pepper & Cream Soda are blended to create one satisfyingly unique beverage. Other sodas can try, but only Dr Pepper can crush your craving for flavor", 0);
     products.push(soda_1, soda_2, soda_3, soda_4, soda_5, soda_6);
 
+    let sessionStorageCheck = sessionStorage.getItem(["cart"]);
+
+    if (sessionStorageCheck || sessionStorageCheck === "") {
+        let objectsFromSessionStorage = JSON.parse(sessionStorage["cart"]);
+        $.each(objectsFromSessionStorage, (i, objectFromStorage) => {
+            cart.push(objectFromStorage);
+        })        
+    }
+
     addProductsHtml();
     pickProductCategory();
     productCart();
-
 })
 
 function addProductsHtml() {
@@ -150,10 +158,19 @@ function productCart() {
         let sum = 0;
         $("#cart").html(" ");
         $.each(cart, (i, cartProduct) => {
+            $.each($("#cart").find("div"), (index, cartDiv) => {
+                if(cartDiv.id == cartProduct.id) {
+                    cartProduct.inCart++;
+                    // cartProduct.inCart = 0;
+                    cart.splice(i, 1);
+                    sessionStorage.setItem(["cart"], JSON.stringify(cart));
+                    productCart();
+                }
+            })
             let price = cartProduct.price * cartProduct.inCart;
             sum += price;
 
-            let cartProductWrapper = $("<div></div>").addClass("cartProductWrapper");
+            let cartProductWrapper = $("<div></div>").addClass("cartProductWrapper").attr("id", cartProduct.id);
             $("<img>").attr("src", cartProduct.image).appendTo(cartProductWrapper);
             $("<h5></h5>").text(cartProduct.name).appendTo(cartProductWrapper);
             $("<span></span>").text(cartProduct.price + " kr").appendTo(cartProductWrapper);
@@ -164,17 +181,18 @@ function productCart() {
                     cartProduct.inCart = parseInt(changeAmmountProductInput.val());
                     sum += (cartProduct.price * (cartProduct.inCart - 1));
                     totalPrice.html("Total: " + sum + " kr");
-
+                    sessionStorage.setItem(["cart"], JSON.stringify(cart));
                 }
+
             }).appendTo(cartProductWrapper);
             $("<button></button>").attr("type", "button").html("&#10005;").on('click', () =>  {
                 cartProduct.inCart = 0;
                 cart.splice(i, 1);
+                sessionStorage.setItem(["cart"], JSON.stringify(cart));
                 productCart();
             }).appendTo(cartProductWrapper);
 
             cartProductWrapper.appendTo($("#cart"));
-
 
         })
         let totalPrice = $("<p></p>");

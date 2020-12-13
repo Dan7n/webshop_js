@@ -71,7 +71,8 @@ body {
             body .cart-contanier .cart-items .wrapper .cart-item-container .inner-div .remove-icon-div {
               width: 100%; }
               body .cart-contanier .cart-items .wrapper .cart-item-container .inner-div .remove-icon-div .ui-spinner-input {
-                margin: 0 !important; }
+                margin: 0 !important;
+                width: 50px; }
             body .cart-contanier .cart-items .wrapper .cart-item-container .inner-div h4 {
               align-self: end;
               margin-bottom: 1rem; }
