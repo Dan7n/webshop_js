@@ -78,7 +78,7 @@ $(function() {
             spinnerContainer.addClass("spinner-container").appendTo(removeIconDiv);
             $("<label>").attr("for", "spinner").html(`<i class="fas fa-sort-amount-up-alt"></i> Quantity: `).appendTo(spinnerContainer);
             let changeAmount = $("<input>");
-            changeAmount.attr("name", "value").attr("min", 1).attr("max", 10).addClass("amount").appendTo(spinnerContainer).on("spinchange", function(e) {
+            changeAmount.attr("name", "value").attr("min", 1).attr("max", 10).attr("value", value.inCart).addClass("amount").appendTo(spinnerContainer).on("spinchange", function(e) {
                 let userInputedPrice = parseInt(e.target.value)
                 value.inCart = userInputedPrice; //setting the object's inCart value to the value inputed by the user, then changing it from string to number in order to do math operations
 
@@ -126,6 +126,9 @@ $(function() {
                 $("footer").addClass("static-position");
                 $(".checkout-container").slideDown()
                 $("<img>").attr("src", "./../assets/teamwork.svg").appendTo(".form-body")
+                $('html, body').animate({
+                    scrollTop: $(".checkout-container").offset().top
+                }, 500);
             });
         }
         displayTotalPrice()
