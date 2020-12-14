@@ -9,7 +9,7 @@ html {
   scroll-behavior: smooth;
   font-family: 'Raleway', sans-serif; }
   html body {
-    background-image: none; }
+    background: linear-gradient(262deg, #f9dcc4, #cbc0d3), none !important; }
     html body header nav {
       position: fixed; }
     html body #cartDialogButton {
@@ -24,6 +24,14 @@ html {
         padding: 1.5rem;
         color: #464646;
         position: fixed; }
+        @media screen and (max-width: 700px) {
+          html body #cartDialogButton button {
+            padding: 3rem 1.5rem; } }
+        html body #cartDialogButton button i {
+          transform: scale(1.1); }
+          html body #cartDialogButton button i:hover {
+            color: #9e7ab8;
+            cursor: pointer; }
     html body .myDialogClass {
       position: fixed;
       width: 550;
@@ -82,13 +90,16 @@ html {
       justify-content: center;
       align-items: center;
       gap: 20px;
-      padding: 40px; }
+      padding: 40px;
+      margin: 0 8%;
+      background-color: #fdfffc; }
       @media screen and (max-width: 700px) {
         html body #sortButtonContainer {
           flex-direction: row;
           flex-wrap: wrap;
           gap: 25px;
-          padding: 10px 50px; } }
+          padding: 10px 50px;
+          margin: 0 0 0 14% !important; } }
       html body #sortButtonContainer button {
         border: none;
         background-color: inherit;
@@ -110,10 +121,21 @@ html {
       align-items: center;
       flex-wrap: wrap;
       gap: 50px;
-      padding: 10px; }
+      padding: 10px;
+      margin: 0 8%;
+      background-color: #fdfffc; }
+      html body #productContainer button {
+        font-weight: 500 !important;
+        cursor: pointer !important;
+        border-radius: 4px; }
+        html body #productContainer button:hover {
+          border: 1px solid gray;
+          color: white !important;
+          background-color: #66c2ff; }
       @media screen and (max-width: 700px) {
         html body #productContainer {
-          flex-direction: column; } }
+          flex-direction: column;
+          margin: 0 0 0 14% !important; } }
       html body #productContainer div {
         width: 20%;
         display: flex;
@@ -139,6 +161,7 @@ html {
             html body #productContainer div button {
               padding: 20px; } }
         html body #productContainer div .addedToCart {
-          background-color: #90d3ff; }
+          background-color: #007acc;
+          color: white; }
     html body footer {
       position: static; }

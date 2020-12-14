@@ -29,7 +29,6 @@ body {
     .cart-contanier {
         width: 100%;
         height: fit-content;
-        // overflow: hidden;
         @include center-all;
         flex-direction: column;
         .cart-items {
@@ -50,8 +49,11 @@ body {
             //in case cart is NOT empty
             .wrapper {
                 width: 70%;
+                div:last-child {
+                    margin-bottom: 3rem !important;
+                }
                 .cart-item-container {
-                    width: fit-content;
+                    width: 95%;
                     height: fit-content;
                     border: 1px solid gray;
                     display: grid;
@@ -83,7 +85,9 @@ body {
                     }
                     img {
                         width: 150px;
-                        height: 150px;
+                        // height: 150px;
+                        height: auto;
+                        max-height: 200px;
                         margin: 0 1rem;
                         grid-area: img;
                         align-self: center;
@@ -208,9 +212,11 @@ body {
             }
             img {
                 width: 35%;
-                margin-left: -30%;
-                transform: translate(-15%, 0);
+                // margin-left: -30%;
+                // transform: translate(-15%, 0);
                 z-index: 1;
+                position: absolute;
+                right: 9%;
             }
             form {
                 width: 100%;
@@ -232,11 +238,14 @@ body {
                     gap: 0.3rem;
                     label {
                         padding-right: 5rem;
+                        width: 70%;
                     }
                     input {
                         margin-right: 3rem;
                         width: 200px;
                         display: inline-block;
+                        background-color: #fdfffc;
+                        border-style: solid;
                     }
                 }
                 .submit {
@@ -361,11 +370,13 @@ footer {
         }
         div {
             width: 90% !important;
+            flex-wrap: wrap !important;
             label {
-                width: fit-content !important;
+                width: 200px !important;
             }
             input {
-                width: 200px !important;
+                width: 170px !important;
+                height: 28px;
             }
         }
     }

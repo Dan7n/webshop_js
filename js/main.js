@@ -18,6 +18,13 @@ class Product {
 let id = 0;
 $(function() {
 
+    // $(".overlay-text").animate({
+    //     top: "35%",
+    //     opacity: "1"
+    // }, 700);
+
+
+
     $(".logo-svg").on("mouseenter", () => {
         $("svg > path").attr("fill", "#0b325d");
     }).on("mouseleave", () => {
@@ -80,7 +87,7 @@ function addProductsHtml() {
         productButton.attr("type", "button").text("Add To Cart!").on('click', () => {
             product.inCart++;
             if (product.inCart <= 1) {
-                cart.push(product);   
+                cart.push(product);
             }
 
             productButton.text("Added to cart!");

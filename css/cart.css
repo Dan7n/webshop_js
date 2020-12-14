@@ -48,8 +48,10 @@ body {
     opacity: 0; } }
       body .cart-contanier .cart-items .wrapper {
         width: 70%; }
+        body .cart-contanier .cart-items .wrapper div:last-child {
+          margin-bottom: 3rem !important; }
         body .cart-contanier .cart-items .wrapper .cart-item-container {
-          width: fit-content;
+          width: 95%;
           height: fit-content;
           border: 1px solid gray;
           display: grid;
@@ -77,7 +79,8 @@ body {
               margin-bottom: 1rem; }
           body .cart-contanier .cart-items .wrapper .cart-item-container img {
             width: 150px;
-            height: 150px;
+            height: auto;
+            max-height: 200px;
             margin: 0 1rem;
             grid-area: img;
             align-self: center; }
@@ -179,9 +182,9 @@ body {
         width: fit-content; }
       body .checkout-container .form-body img {
         width: 35%;
-        margin-left: -30%;
-        transform: translate(-15%, 0);
-        z-index: 1; }
+        z-index: 1;
+        position: absolute;
+        right: 9%; }
       body .checkout-container .form-body form {
         width: 100%;
         display: flex !important;
@@ -200,11 +203,14 @@ body {
           justify-content: space-between;
           gap: 0.3rem; }
           body .checkout-container .form-body form div label {
-            padding-right: 5rem; }
+            padding-right: 5rem;
+            width: 70%; }
           body .checkout-container .form-body form div input {
             margin-right: 3rem;
             width: 200px;
-            display: inline-block; }
+            display: inline-block;
+            background-color: #fdfffc;
+            border-style: solid; }
         body .checkout-container .form-body form .submit {
           padding: 7px;
           margin: 1rem 0;
@@ -301,10 +307,12 @@ footer {
     .checkout-container img {
       display: none; }
     .checkout-container div {
-      width: 90% !important; }
+      width: 90% !important;
+      flex-wrap: wrap !important; }
       .checkout-container div label {
-        width: fit-content !important; }
-      .checkout-container div input {
         width: 200px !important; }
+      .checkout-container div input {
+        width: 170px !important;
+        height: 28px; }
   footer {
     position: fixed !important; } }

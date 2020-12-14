@@ -62,7 +62,7 @@ $(function() {
                                 parent.remove();
 
                                 //if user removes all items from the cart, re-direct to empty page and clear sessionStorage
-                                if ($(".wrapper").children().length >= 0) {
+                                if ($(".wrapper").children().length <= 0) {
                                     $(".price-container").remove();
                                     $(".checkout-container").hide();
                                     emptyCart()
@@ -154,7 +154,7 @@ $(function() {
                 $formInputs.filter(function() {
                     return $(this).val() === "";
                 }).addClass("validation-failure");
-                $checkoutBtn.attr("title", "Please make sure to fill all the remaining form fields");
+                $checkoutBtn.attr("title", "Please make sure to fill out all the remaining form fields");
                 $(document).tooltip();
 
                 //allow order to be submitted if all form inputs are filled with data
