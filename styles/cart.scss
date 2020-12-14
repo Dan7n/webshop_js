@@ -3,7 +3,6 @@
 @import 'variables/_var.scss';
 html {
     height: 100%;
-
     body {
         background-image: none !important;
         background: linear-gradient(262deg, #f9dcc4, #cbc0d3) !important;
@@ -25,60 +24,60 @@ html {
         header {
             background-color: rgba(11, 24, 40, 0.4) !important;
         }
-    }
-    header {
-        background-color: rgba(11, 24, 40, 0.4) !important;
-    }
-    .cart-contanier {
-        width: 100%;
-        height: fit-content;
-        @include center-all;
-        flex-direction: column;
-        .cart-items {
-            background-color: #fdfffc;
-            width: 85%;
-            margin-left: 14%;
-            height: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: flex-start;
-            padding-top: 3rem;
-            margin-bottom: 1rem;
-            //when user deletes item from cart
-            .deleted {
-                @include delete-animations;
-            }
-            //in case cart is NOT empty
-            .wrapper {
-                width: 70%;
-                div:last-child {
-                    margin-bottom: 3rem !important;
+        .cart-contanier {
+            width: 100%;
+            height: fit-content;
+            // overflow: hidden;
+            @include center-all;
+            flex-direction: column;
+            .cart-items {
+                background-color: #fdfffc;
+                width: 85%;
+                margin-left: 14%;
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding-top: 3rem;
+                margin-bottom: 1rem;
+                //when user deletes item from cart
+                .deleted {
+                    @include delete-animations;
                 }
-                .cart-item-container {
-                    width: 95%;
-                    height: fit-content;
-                    border: 1px solid gray;
-                    display: grid;
-                    grid-template-columns: 15% 1fr 8%;
-                    grid-template-rows: 1fr;
-                    gap: 5rem;
-                    padding: 1rem 0;
-                    margin: 0 1rem 10px 1rem;
-                    grid-template-areas: "img innerDiv price";
-                    .inner-div {
-                        grid-area: innerDiv;
-                        display: flex;
-                        justify-items: center;
-                        align-items: flex-start;
-                        flex-direction: column;
-                        gap: 1rem;
-                        margin-left: 1rem;
-                        align-self: end;
-                        .remove-icon-div {
-                            width: 100%;
-                            .ui-spinner-input {
-                                margin: 0 !important; //overriding jQuery UI styling
+                //in case cart is NOT empty
+                .wrapper {
+                    width: 70%;
+                    .cart-item-container {
+                        width: fit-content;
+                        height: fit-content;
+                        border: 1px solid gray;
+                        display: grid;
+                        grid-template-columns: 15% 1fr 8%;
+                        grid-template-rows: 1fr;
+                        gap: 5rem;
+                        padding: 1rem 0;
+                        margin: 0 1rem 10px 1rem;
+                        grid-template-areas: "img innerDiv price";
+                        .inner-div {
+                            grid-area: innerDiv;
+                            display: flex;
+                            justify-items: center;
+                            align-items: flex-start;
+                            flex-direction: column;
+                            gap: 1rem;
+                            margin-left: 1rem;
+                            align-self: end;
+                            .remove-icon-div {
+                                width: 100%;
+                                .ui-spinner-input {
+                                    margin: 0 !important; //overriding jQuery UI styling
+                                    width: 50px;
+                                }
+                            }
+                            h4 {
+                                align-self: end;
+                                margin-bottom: 1rem;
                             }
                         }
                         img {
@@ -98,26 +97,6 @@ html {
                             // width: 100% !important;
                             font-size: 0.9rem;
                         }
-                    }
-                    img {
-                        width: 150px;
-                        // height: 150px;
-                        height: auto;
-                        max-height: 200px;
-                        margin: 0 1rem;
-                        grid-area: img;
-                        align-self: center;
-                    }
-                    .cart-item-p-price {
-                        grid-area: price;
-                        justify-self: start;
-                        align-self: center;
-                        font-size: 0.9rem;
-                        padding-right: 3rem;
-                        margin-left: -2rem;
-                        // width: 100% !important;
-                        font-size: 0.9rem;
-
                     }
                 }
                 .price-container {
@@ -214,19 +193,7 @@ html {
             }
             .form-body {
                 display: flex;
-                width: fit-content;
-            }
-            img {
-                width: 35%;
-                // margin-left: -30%;
-                // transform: translate(-15%, 0);
-                z-index: 1;
-                position: absolute;
-                right: 9%;
-            }
-            form {
-                width: 100%;
-                display: flex !important;
+                flex-direction: row;
                 justify-content: flex-start;
                 align-items: flex-start;
                 overflow: hidden;
@@ -236,19 +203,45 @@ html {
                 }
                 div {
                     display: flex;
-                    justify-content: space-between;
-                    gap: 0.3rem;
-                    label {
-                        padding-right: 5rem;
-                        width: 70%;
+                    width: fit-content;
+                }
+                img {
+                    width: 35%;
+                    // margin-left: -30%;
+                    // transform: translate(-15%, 0);
+                    z-index: 1;
+                    position: absolute;
+                    right: 9%;
+                }
+                form {
+                    width: 100%;
+                    display: flex !important;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    margin-left: 3rem !important;
+                    gap: 1rem;
+                    margin-bottom: 4rem;
+                    z-index: 4;
+                    .validation-failure {
+                        border-color: $faliure;
                     }
-                    input {
-                        margin-right: 3rem;
-                        width: 200px;
-                        display: inline-block;
-                        background-color: #fdfffc;
-                        border-style: solid;
-
+                    div {
+                        width: 40%;
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 0.3rem;
+                        flex-wrap: wrap;
+                        z-index: 2;
+                        label {
+                            padding-right: 3rem;
+                            width: 200px;
+                        }
+                        input {
+                            margin-right: 3rem;
+                            width: 180px;
+                            display: inline-block;
+                        }
                     }
                     .submit {
                         padding: 7px;
@@ -303,7 +296,6 @@ html {
     }
 }
 
-
 // ---------------- media queries ------------------------
 @media screen and (min-width: 700px) {
     .cart-items {
@@ -336,7 +328,6 @@ html {
         bottom: 0 !important;
         left: 0 !important;
         height: 70px !important;
-
     }
 }
 
@@ -376,9 +367,8 @@ html {
         }
         div {
             width: 90% !important;
-            flex-wrap: wrap !important;
             label {
-                width: 200px !important;
+                // width: fit-content !important;
             }
             input {
                 width: 170px !important;

@@ -163,7 +163,6 @@ html {
           @media screen and (max-width: 700px) {
             html body #productContainer div button {
               padding: 20px; } }
-
         html body #productContainer div button:disabled {
           background-color: #007acc;
           color: white; }
