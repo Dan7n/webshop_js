@@ -94,7 +94,6 @@ html {
               font-size: 0.9rem; }
         html body .cart-contanier .cart-items .price-container {
           width: 30%;
-          height: 40%;
           position: sticky;
           display: flex;
           flex-direction: column;
