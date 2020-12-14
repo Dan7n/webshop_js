@@ -84,6 +84,7 @@ html {
                             }
                         }
                         img {
+                            // width: 150px
                             height: 150px;
                             margin: 0 1rem;
                             grid-area: img;
@@ -371,9 +372,6 @@ html {
         }
         div {
             width: 90% !important;
-            label {
-                // width: fit-content !important;
-            }
             input {
                 width: 170px !important;
                 height: 28px;
