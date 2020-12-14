@@ -3,294 +3,295 @@
 @import 'variables/_var.scss';
 html {
     height: 100%;
-}
 
-body {
-    background-image: none !important;
-    background: linear-gradient(262deg, #f9dcc4, #cbc0d3) !important;
-    background-size: 400% 400%;
-    width: 100% !important;
-    height: 100% !important;
-    position: relative;
-    @keyframes backgroundAnimation_cart {
-        0% {
-            background-position: 0% 50%
-        }
-        50% {
-            background-position: 100% 50%
-        }
-        100% {
-            background-position: 0% 50%
-        }
-    }
-    header {
-        background-color: rgba(11, 24, 40, 0.4) !important;
-    }
-    .cart-contanier {
-        width: 100%;
-        height: fit-content;
-        // overflow: hidden;
-        @include center-all;
-        flex-direction: column;
-        .cart-items {
-            background-color: #fdfffc;
-            width: 85%;
-            margin-left: 14%;
-            height: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: flex-start;
-            padding-top: 3rem;
-            margin-bottom: 1rem;
-            //when user deletes item from cart
-            .deleted {
-                @include delete-animations;
+    body {
+        background-image: none !important;
+        background: linear-gradient(262deg, #f9dcc4, #cbc0d3) !important;
+        background-size: 400% 400%;
+        width: 100% !important;
+        height: 100% !important;
+        position: relative;
+        @keyframes backgroundAnimation_cart {
+            0% {
+                background-position: 0% 50%
             }
-            //in case cart is NOT empty
-            .wrapper {
-                width: 70%;
-                .cart-item-container {
-                    width: fit-content;
-                    height: fit-content;
-                    border: 1px solid gray;
-                    display: grid;
-                    grid-template-columns: 15% 1fr 8%;
-                    grid-template-rows: 1fr;
-                    gap: 5rem;
-                    padding: 1rem 0;
-                    margin: 0 1rem 10px 1rem;
-                    grid-template-areas: "img innerDiv price";
-                    .inner-div {
-                        grid-area: innerDiv;
-                        display: flex;
-                        justify-items: center;
-                        align-items: flex-start;
-                        flex-direction: column;
-                        gap: 1rem;
-                        margin-left: 1rem;
-                        align-self: end;
-                        .remove-icon-div {
-                            width: 100%;
-                            .ui-spinner-input {
-                                margin: 0 !important; //overriding jQuery UI styling
-                                width: 50px;
-                            }
-                        }
-                        h4 {
-                            align-self: end;
-                            margin-bottom: 1rem;
-                        }
-                    }
-                    img {
-                        width: 150px;
-                        height: 150px;
-                        margin: 0 1rem;
-                        grid-area: img;
-                        align-self: center;
-                    }
-                    .cart-item-p-price {
-                        grid-area: price;
-                        justify-self: start;
-                        align-self: center;
-                        font-size: 0.9rem;
-                        padding-right: 3rem;
-                        margin-left: -2rem;
-                        // width: 100% !important;
-                        font-size: 0.9rem;
-                    }
-                }
+            50% {
+                background-position: 100% 50%
             }
-            .price-container {
-                width: 30%;
-                height: 30%;
-                position: sticky;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                margin-right: 1rem;
-                border: 1px solid gray;
-                .price-inner-div {
-                    width: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 0.3rem;
-                    div {
-                        display: flex;
-                        justify-content: space-between;
-                        margin: 0 .5rem;
-                        color: $dark-gray;
-                        font-size: 0.9rem;
-                        font-weight: 200;
-                        .free {
-                            color: $sucess !important;
-                        }
-                    }
-                }
-                .final-price {
-                    display: flex;
-                    width: 100%;
-                    justify-content: space-between;
-                    padding: 0 .5rem;
-                    font-weight: 400;
-                }
-                a {
-                    padding: 7px;
-                    margin-bottom: 1rem;
-                    font-size: 0.9rem;
-                    font-weight: 200;
-                    background-color: #093443;
-                    color: #A1E6F6;
-                    border-radius: 3px;
-                    transition: all 150ms ease-in-out;
-                    &:hover {
-                        cursor: pointer;
-                        background-color: #A1E6F6;
-                        color: #093443;
-                    }
-                }
-            }
-            //in case cart is empty
-            .cart-empty-svg {
-                height: 59%;
-                width: 70%;
-            }
-            .cart-empty-h1 {
-                color: $faliure;
-                margin-bottom: 0.7rem;
-                font-size: 1.5rem;
-            }
-            .cart-empty-p {
-                font-size: 1.1rem;
-                text-align: center;
-                margin-bottom: 2rem;
-            }
-            .cart-empty-btn {
-                margin-bottom: 5rem;
-                text-decoration: none;
-                padding: .6rem 1.4rem;
-                font-size: 1rem;
-                border: 1px solid $purpile-blue;
-                color: $purpile-blue;
-                box-shadow: -11px 10px 13px -1px rgba(0, 0, 0, 0.31);
-                transition: all ease 150ms;
-                &:hover {
-                    background-color: $purpile-blue;
-                    color: white;
-                }
+            100% {
+                background-position: 0% 50%
             }
         }
-    }
-    .checkout-container {
-        width: 85%;
-        background-color: #fdfffc;
-        margin-bottom: 14vh;
-        h1 {
-            padding: 0.7rem;
+        header {
+            background-color: rgba(11, 24, 40, 0.4) !important;
+        }
+        .cart-contanier {
             width: 100%;
-            border: 1px solid gray;
-            cursor: pointer;
-            margin-bottom: 1.5rem;
-        }
-        .form-body {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: flex-start;
-            overflow: hidden;
-            span {
-                color: $manditory;
-                font-size: 1.3rem;
-            }
-            div {
+            height: fit-content;
+            // overflow: hidden;
+            @include center-all;
+            flex-direction: column;
+            .cart-items {
+                background-color: #fdfffc;
+                width: 85%;
+                margin-left: 14%;
+                height: 100%;
                 display: flex;
-                width: fit-content;
-            }
-            img {
-                width: 35%;
-                margin-left: -30%;
-                transform: translate(-15%, 0);
-                z-index: 1;
-            }
-            form {
-                width: 100%;
-                display: flex !important;
+                flex-direction: row;
                 justify-content: flex-start;
                 align-items: flex-start;
-                flex-direction: column;
-                margin-left: 3rem !important;
-                gap: 1rem;
-                margin-bottom: 4rem;
-                z-index: 4;
-                .validation-failure {
-                    border-color: $faliure;
+                padding-top: 3rem;
+                margin-bottom: 1rem;
+                //when user deletes item from cart
+                .deleted {
+                    @include delete-animations;
                 }
-                div {
-                    width: 50%;
+                //in case cart is NOT empty
+                .wrapper {
+                    width: 70%;
+                    .cart-item-container {
+                        width: fit-content;
+                        height: fit-content;
+                        border: 1px solid gray;
+                        display: grid;
+                        grid-template-columns: 15% 1fr 8%;
+                        grid-template-rows: 1fr;
+                        gap: 5rem;
+                        padding: 1rem 0;
+                        margin: 0 1rem 10px 1rem;
+                        grid-template-areas: "img innerDiv price";
+                        .inner-div {
+                            grid-area: innerDiv;
+                            display: flex;
+                            justify-items: center;
+                            align-items: flex-start;
+                            flex-direction: column;
+                            gap: 1rem;
+                            margin-left: 1rem;
+                            align-self: end;
+                            .remove-icon-div {
+                                width: 100%;
+                                .ui-spinner-input {
+                                    margin: 0 !important; //overriding jQuery UI styling
+                                    width: 50px;
+                                }
+                            }
+                            h4 {
+                                align-self: end;
+                                margin-bottom: 1rem;
+                            }
+                        }
+                        img {
+                            width: 150px;
+                            height: 150px;
+                            margin: 0 1rem;
+                            grid-area: img;
+                            align-self: center;
+                        }
+                        .cart-item-p-price {
+                            grid-area: price;
+                            justify-self: start;
+                            align-self: center;
+                            font-size: 0.9rem;
+                            padding-right: 3rem;
+                            margin-left: -2rem;
+                            // width: 100% !important;
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+                .price-container {
+                    width: 30%;
+                    height: 30%;
+                    position: sticky;
                     display: flex;
+                    flex-direction: column;
                     justify-content: space-between;
-                    gap: 0.3rem;
-                    label {
-                        padding-right: 5rem;
+                    align-items: center;
+                    margin-right: 1rem;
+                    border: 1px solid gray;
+                    .price-inner-div {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.3rem;
+                        div {
+                            display: flex;
+                            justify-content: space-between;
+                            margin: 0 .5rem;
+                            color: $dark-gray;
+                            font-size: 0.9rem;
+                            font-weight: 200;
+                            .free {
+                                color: $sucess !important;
+                            }
+                        }
                     }
-                    input {
-                        margin-right: 3rem;
-                        width: 200px;
-                        display: inline-block;
+                    .final-price {
+                        display: flex;
+                        width: 100%;
+                        justify-content: space-between;
+                        padding: 0 .5rem;
+                        font-weight: 400;
+                    }
+                    a {
+                        padding: 7px;
+                        margin-bottom: 1rem;
+                        font-size: 0.9rem;
+                        font-weight: 200;
+                        background-color: #093443;
+                        color: #A1E6F6;
+                        border-radius: 3px;
+                        transition: all 150ms ease-in-out;
+                        &:hover {
+                            cursor: pointer;
+                            background-color: #A1E6F6;
+                            color: #093443;
+                        }
                     }
                 }
-                .submit {
-                    padding: 7px;
-                    margin: 1rem 0;
-                    font-size: 0.9rem;
-                    font-weight: 200;
-                    background-color: #093443;
-                    color: #A1E6F6;
-                    border-radius: 3px;
-                    transition: all 150ms ease-in-out;
+                //in case cart is empty
+                .cart-empty-svg {
+                    height: 59%;
+                    width: 70%;
+                }
+                .cart-empty-h1 {
+                    color: $faliure;
+                    margin-bottom: 0.7rem;
+                    font-size: 1.5rem;
+                }
+                .cart-empty-p {
+                    font-size: 1.1rem;
+                    text-align: center;
+                    margin-bottom: 2rem;
+                }
+                .cart-empty-btn {
+                    margin-bottom: 5rem;
+                    text-decoration: none;
+                    padding: .6rem 1.4rem;
+                    font-size: 1rem;
+                    border: 1px solid $purpile-blue;
+                    color: $purpile-blue;
+                    box-shadow: -11px 10px 13px -1px rgba(0, 0, 0, 0.31);
+                    transition: all ease 150ms;
                     &:hover {
-                        cursor: pointer;
-                        background-color: #A1E6F6;
-                        color: #093443;
+                        background-color: $purpile-blue;
+                        color: white;
                     }
                 }
             }
         }
-    }
-    //overrides settings if cart is empty:
-    #emptyCart {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    #loadingContainer {
-        height: 100%;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-        z-index: 10;
-        position: fixed;
-        top: 0;
-        left: 0;
-        @include center-all;
-        flex-direction: column;
-        gap: 3rem;
-        h1 {
-            color: #f5f5f5;
-            font-size: 1.6rem;
-            font-weight: 300;
+        .checkout-container {
+            width: 85%;
+            background-color: #fdfffc;
+            margin-bottom: 14vh;
+            h1 {
+                padding: 0.7rem;
+                width: 100%;
+                border: 1px solid gray;
+                cursor: pointer;
+                margin-bottom: 1.5rem;
+            }
+            .form-body {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: flex-start;
+                overflow: hidden;
+                span {
+                    color: $manditory;
+                    font-size: 1.3rem;
+                }
+                div {
+                    display: flex;
+                    width: fit-content;
+                }
+                img {
+                    width: 35%;
+                    margin-left: -30%;
+                    transform: translate(-15%, 0);
+                    z-index: 1;
+                }
+                form {
+                    width: 100%;
+                    display: flex !important;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    margin-left: 3rem !important;
+                    gap: 1rem;
+                    margin-bottom: 4rem;
+                    z-index: 4;
+                    .validation-failure {
+                        border-color: $faliure;
+                    }
+                    div {
+                        width: 50%;
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 0.3rem;
+                        label {
+                            padding-right: 5rem;
+                        }
+                        input {
+                            margin-right: 3rem;
+                            width: 200px;
+                            display: inline-block;
+                        }
+                    }
+                    .submit {
+                        padding: 7px;
+                        margin: 1rem 0;
+                        font-size: 0.9rem;
+                        font-weight: 200;
+                        background-color: #093443;
+                        color: #A1E6F6;
+                        border-radius: 3px;
+                        transition: all 150ms ease-in-out;
+                        &:hover {
+                            cursor: pointer;
+                            background-color: #A1E6F6;
+                            color: #093443;
+                        }
+                    }
+                }
+            }
+        }
+        //overrides settings if cart is empty:
+        #emptyCart {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #loadingContainer {
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 10;
+            position: fixed;
+            top: 0;
+            left: 0;
+            @include center-all;
+            flex-direction: column;
+            gap: 3rem;
+            h1 {
+                color: #f5f5f5;
+                font-size: 1.6rem;
+                font-weight: 300;
+            }
+        }
+        footer {
+            height: 70px !important;
+            background-color: rgba(11, 24, 40, 0.3);
+            transition: background-color ease-in-out 200ms;
+            z-index: 5;
+            &:hover {
+                background-color: rgba(11, 24, 40, 1) !important;
+            }
         }
     }
 }
 
-footer {
-    background-color: rgba(11, 24, 40, 0.3);
-    transition: background-color ease-in-out 200ms;
-    z-index: 5;
-    &:hover {
-        background-color: rgba(11, 24, 40, 1) !important;
-    }
-}
 
 // ---------------- media queries ------------------------
 @media screen and (min-width: 700px) {
@@ -323,6 +324,8 @@ footer {
         position: fixed !important;
         bottom: 0 !important;
         left: 0 !important;
+        height: 70px !important;
+
     }
 }
 

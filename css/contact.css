@@ -91,7 +91,8 @@ html body {
             background-color: #ef476f;
             color: white; }
   html body footer {
-    position: fixed; }
+    position: fixed;
+    height: 70px !important; }
 
 @media screen and (max-width: 700px) {
   nav {

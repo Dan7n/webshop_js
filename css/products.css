@@ -33,9 +33,9 @@ html {
             color: #9e7ab8;
             cursor: pointer; }
     html body .myDialogClass {
-      position: fixed;
       width: 550;
-      height: 600; }
+      height: 500;
+      position: fixed; }
       @media screen and (max-width: 700px) {
         html body .myDialogClass {
           width: 100%;
@@ -67,7 +67,10 @@ html {
         justify-content: space-between;
         align-items: center;
         height: 70px;
-        margin: 20px 0px; }
+        margin: 20px 0px;
+        padding: 10px; }
+        html body #cart div h5 {
+          padding: 0 10px; }
         html body #cart div img {
           height: 100%; }
         html body #cart div button {
@@ -160,7 +163,7 @@ html {
           @media screen and (max-width: 700px) {
             html body #productContainer div button {
               padding: 20px; } }
-        html body #productContainer div .addedToCart {
+        html body #productContainer div button:disabled {
           background-color: #007acc;
           color: white; }
     html body footer {
