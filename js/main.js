@@ -73,7 +73,7 @@ $(function() {
         let objectsFromSessionStorage = JSON.parse(sessionStorage["cart"]);
         $.each(objectsFromSessionStorage, (i, objectFromStorage) => {
             cart.push(objectFromStorage);
-        })        
+        })
     }
 
     addProductsHtml();
@@ -108,18 +108,18 @@ function addProductsHtml() {
                             //om detta objekt redan finns i vagnen
                             console.log(objectFromStorage);
                             cart.splice(i, 1);
-                            objectFromStorage.inCart +=  1;
+                            objectFromStorage.inCart += 1;
                             cart.push(objectFromStorage);
                             let removeDoubleIndex = cart.indexOf(product);
                             cart.splice(removeDoubleIndex, 1);
-                        } 
+                        }
                     })
                     sessionStorage.setItem(["cart"], JSON.stringify(cart));
                     productCart();
                 } else {
                     // om det inte finns objekt i storage
-                    cart.push(product);  
-                }                
+                    cart.push(product);
+                }
                 sessionStorage.setItem(["cart"], JSON.stringify(cart));
                 productCart();
             }

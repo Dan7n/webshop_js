@@ -58,8 +58,11 @@ $(function() {
                         objectsFromSessionStorage.splice(relatedObject, 1)
                         listOfPrices.splice(relatedObject, 1);
 
-                        parent.addClass("deleted").on("animationend", () => {
+                        parent.addClass("deleted").on("animationend", function() {
                                 parent.remove();
+                                updateTotalPrice($("#itemsInCart"), getTotalPrice(), "Items in cart:")
+                                updateTotalPrice($("#finalPrice"), getTotalPrice(), "Final price:")
+
 
                                 //if user removes all items from the cart, re-direct to empty page and clear sessionStorage
                                 if ($(".wrapper").children().length <= 0) {
@@ -118,9 +121,9 @@ $(function() {
             let $priceInnerDiv = $("<div>");
             $("<h2>").text("Total price").appendTo($priceContainer);
             $priceInnerDiv.addClass("price-inner-div").appendTo($priceContainer);
-            $("<div>").html(`<p>Items in cart:</p><p>${getTotalPrice()} SEK</p>`).appendTo($priceInnerDiv);
+            $("<div>").html(`<p>Items in cart:</p><p>${getTotalPrice()} SEK</p>`).attr("id", "itemsInCart").appendTo($priceInnerDiv);
             $("<div>").html(`<p>Shipping and handling:</p><p class="free">FREE!</p>`).appendTo($priceInnerDiv);
-            $("<div>").addClass("final-price").html(`<p>Final price:</p><p>${getTotalPrice()} SEK</p>`).appendTo($priceContainer);
+            $("<div>").addClass("final-price").html(`<p>Final price:</p><p>${getTotalPrice()} SEK</p>`).attr("id", "finalPrice").appendTo($priceContainer);
             $("<a>").addClass("to-checkout-btn").html("Go to checkout").appendTo($priceContainer).one("click", function() {
                 $priceContainer.addClass("remove-margin-bottom");
                 $("footer").addClass("static-position");
