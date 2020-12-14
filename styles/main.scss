@@ -84,14 +84,6 @@ html {
                             font-size: 1.2rem;
                             font-weight: 200;
                             display: none;
-                            // &:hover {
-                            //     // background: linear-gradient(155deg, rgba(116, 108, 0, 0.7973564425770308) 0%, rgba(240, 5, 166, 0.5284488795518207) 91%);
-                            //     -webkit-text-fill-color: transparent;
-                            //     background-clip: text;
-                            //     -webkit-background-clip: text;
-                            //     font-weight: 400;
-                            //     text-decoration: underline !important;
-                            // }
                         }
                     }
                 }
@@ -127,7 +119,6 @@ html {
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
-    
                 a {
                     font-size: 120%;
                     color: inherit;
@@ -192,6 +183,11 @@ html {
     footer {
         padding: 0 3rem !important;
         height: 100px !important;
+        transition: background-color ease-in-out 200ms;
+        z-index: 5;
+        &:hover {
+            background-color: rgba(11, 24, 40, 1) !important;
+        }
         ul {
             width: 15% !important;
             a {
