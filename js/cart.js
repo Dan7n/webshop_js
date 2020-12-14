@@ -55,8 +55,9 @@ $(function() {
 
                     //remove item from cart, remove object from array, update sessionStorage
                     if (parent.attr("id") == relatedObject.id) {
-                        objectsFromSessionStorage.splice(relatedObject, 1)
-                        listOfPrices.splice(relatedObject, 1);
+                        let removedItemIndex = objectsFromSessionStorage.indexOf(relatedObject);
+                        objectsFromSessionStorage.splice(removedItemIndex, 1)
+                        listOfPrices.splice(removedItemIndex, 1);
 
                         parent.addClass("deleted").on("animationend", function() {
                                 parent.remove();
@@ -84,7 +85,7 @@ $(function() {
             changeAmount.attr("name", "value").attr("min", 1).attr("max", 10).attr("value", value.inCart).addClass("amount").appendTo(spinnerContainer).on("spinchange", function(e) {
                 let userInputedPrice = parseInt(e.target.value)
                 value.inCart = userInputedPrice; //setting the object's inCart value to the value inputed by the user, then changing it from string to number in order to do math operations
-
+                
                 let closestContainer = $(this).closest($(".cart-item-container"));
 
                 //update sessionStorage
