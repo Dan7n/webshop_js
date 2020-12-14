@@ -1,6 +1,8 @@
 let products = [];
 let cart = [];
 const cartPage = $("#cartPage");
+let sessionStorageCheck = sessionStorage.getItem(["cart"]);
+
 
 
 class Product {
@@ -26,14 +28,14 @@ $(function() {
 
     //products => chocolate catagory
     let chocolate_1 = new Product("Reese's, Holiday Assorted Trees Gusset Bag", "Chocolate", 46, "../assets/products/cat_chocolate/reeses.jpeg", id++, "The delicious combination of milk chocolate and peanut butter or white crème and peanut butter", 0);
-    let chocolate_2 = new Product("M&M'S Peanut Chocolate Candy, 38-Ounce Party Size Bag", "Chocolate", 99, "../assets/products/cat_chocolate/m&ms.jpeg", id++, "Made with roasted peanuts and real milk chocolate, M&M'S Peanut Chocolate Candy is a favorite party candy", 0);
+    let chocolate_2 = new Product("M&M'S Peanut Chocolate Candy, Party Size Bag", "Chocolate", 99, "../assets/products/cat_chocolate/m&ms.jpeg", id++, "Made with roasted peanuts and real milk chocolate, M&M'S Peanut Chocolate Candy is a favorite party candy", 0);
     let chocolate_3 = new Product("Minis Size Chocolate Candy Bars Variety Mix", "Chocolate", 119, "../assets/products/cat_chocolate/snack-mix.jpeg", id++, "These mini-sized bars of chocolate are fantastic for sharing with friends and family", 0);
     let chocolate_4 = new Product("DOVE PROMISES Dark Chocolate Candy Bag", "Chocolate", 43, "../assets/products/cat_chocolate/dove.jpeg", id++, "Made with real dark chocolate for a delicious afternoon snack", 0);
     let chocolate_5 = new Product("Hershey's, Milk Chocolate Candy Bars", "Chocolate", 52, "../assets/products/cat_chocolate/hersheys.png", id++, "Milk Chocolate [Cane Sugar, Milk, Chocolate, Cocoa Butter, Milk Fat, Lecithin (Soy), Natural Flavor].", 0);
     let chocolate_6 = new Product("Kisses Milk Chocolate Candy, Holiday Candy Bag", "Chocolate", 99, "../assets/products/cat_chocolate/kisses.jpeg", id++, "Milk Chocolate [Cane Sugar, Milk, Chocolate, Cocoa Butter, Milk Fat, Lecithin (Soy), Natural Flavor].", 0);
     products.push(chocolate_1, chocolate_2, chocolate_3, chocolate_4, chocolate_5, chocolate_6);
     //products => chips catagory
-    let kettleSaltAndVinegar = new Product("Kettle Brand Potato Chips, Sea Salt and Vinegar Kettle Chips", "Chips", 39, "../assets/products/cat_chips/kettleSaltAndVinegar.jpeg", id++, "Is it presumptuous to call a chip a harmonic convergence of flavor? You might want to taste this chip before you answer. ", 0);
+    let kettleSaltAndVinegar = new Product("Sea Salt and Vinegar Kettle Chips", "Chips", 39, "../assets/products/cat_chips/kettleSaltAndVinegar.jpeg", id++, "Is it presumptuous to call a chip a harmonic convergence of flavor? You might want to taste this chip before you answer. ", 0);
     let doritos = new Product("Doritos Nacho Cheese Flavored Tortilla Chips, Party Size", "Chips", 49, "../assets/products/cat_chips/doritos.jpeg", id++, "DORITOS isn't just a chip. It's fuel for disruption - our flavors ignite adventure and inspire action. With every crunch, we aim to redefine culture and support those who are boldly themselves. Are you ready? If so, crunch on.", 0);
     let cheeseBalls = new Product("Utz Cheese Balls", "Chips", 89, "../assets/products/cat_chips/cheeseBalls.jpeg", id++, "Have a fun and tasty food ready for the next special occasion or for every day snacking with Utz Cheese Balls. This product contains baked cheddar and is made with real cheese for a delicious taste on every piece. ", 0);
     let cheetos = new Product("Cheetos Crunchy Flamin' Hot Cheese Flavored Snacks", "Chips", 39, "../assets/products/cat_chips/cheetos.jpeg", id++, "Hot, spicy flavor packed into crunchy, cheesy snacks. CHEETOS Crunchy FLAMIN' HOT Cheese Flavored Snacks are full of flavor and made with real cheese. Cheetos snacks are the much-loved cheesy treats that are fun for everyone! You just can't eat a Cheetos snack without licking the signature 'cheetle' off your fingertips.", 0);
@@ -59,13 +61,21 @@ $(function() {
     let soda_6 = new Product("Dr Pepper & Cream Soda", "Soda", 69, "../assets/products/cat_soda/dr-pepper.jpeg", id++, "The 23 signature flavors of Dr Pepper & Cream Soda are blended to create one satisfyingly unique beverage. Other sodas can try, but only Dr Pepper can crush your craving for flavor", 0);
     products.push(soda_1, soda_2, soda_3, soda_4, soda_5, soda_6);
 
+
+    if (sessionStorageCheck || sessionStorageCheck === "") {
+        let objectsFromSessionStorage = JSON.parse(sessionStorage["cart"]);
+        $.each(objectsFromSessionStorage, (i, objectFromStorage) => {
+            cart.push(objectFromStorage);
+        })        
+    }
+
     addProductsHtml();
     pickProductCategory();
     productCart();
-
 })
 
 function addProductsHtml() {
+    //Fixa html för varje produkt
     $.each(products, (i, product) => {
         let productWrapper = $("<div></div>");
         let productImage = $("<img>");
@@ -78,17 +88,42 @@ function addProductsHtml() {
         productTitle.text(product.name).appendTo(productWrapper);
         productPrice.text(product.price + " kr").appendTo(productWrapper);
         productButton.attr("type", "button").text("Add To Cart!").on('click', () => {
+            // om det produkten redan finns i varukorgen, öka antalet
             product.inCart++;
             if (product.inCart <= 1) {
-                cart.push(product);   
+                // om produkten inte finns i varukorgen, eller om det finns men är hämtat från sessionstorage
+                if (sessionStorageCheck && sessionStorageCheck != "[]") {
+                    // om det finns objekt i storage
+                    let objectsFromSessionStorage = JSON.parse(sessionStorage["cart"]);
+                    cart.push(product);
+                    $.each(objectsFromSessionStorage, (i, objectFromStorage) => {
+                        if (objectFromStorage.id == product.id) {
+                            //om detta objekt redan finns i vagnen
+                            console.log(objectFromStorage);
+                            cart.splice(i, 1);
+                            objectFromStorage.inCart +=  1;
+                            cart.push(objectFromStorage);
+                            let removeDoubleIndex = cart.indexOf(product);
+                            cart.splice(removeDoubleIndex, 1);
+                        } 
+                    })
+                    sessionStorage.setItem(["cart"], JSON.stringify(cart));
+                    productCart();
+                } else {
+                    // om det inte finns objekt i storage
+                    cart.push(product);  
+                }                
+                sessionStorage.setItem(["cart"], JSON.stringify(cart));
+                productCart();
             }
-
+            // byt till disabled för att visa att produkten är tillagd, och ta bort den efter 4 sek så att det går att lägga till produkten igen
             productButton.text("Added to cart!");
-            productButton.addClass("addedToCart");
+            productButton.prop("disabled", true);
             window.setTimeout(() => {
                 productButton.text("Add to cart!");
-                productButton.removeClass("addedToCart");
+                productButton.prop("disabled", false);
             }, 4000);
+            sessionStorage.setItem(["cart"], JSON.stringify(cart));
             productCart();
         }).appendTo(productWrapper);
 
@@ -97,6 +132,7 @@ function addProductsHtml() {
 }
 
 function pickProductCategory() {
+    // för att kunna sortera produkterna efter kategori
     $("#sodaSortButton").on('click', () => {
         $.each(products, (i, product) => {
             $("#" + i).hide();
@@ -143,57 +179,60 @@ function pickProductCategory() {
 
 
 function productCart() {
+    // varukorgen
     if (cart.length === 0) {
+        // visa text om varukorgen är tom
         $("#cart").html(" ");
         $("<h2></h2>").text("Oops! Looks like your cart is empty").addClass("emptyCartTitle").appendTo($("#cart"));
     } else {
         let sum = 0;
         $("#cart").html(" ");
         $.each(cart, (i, cartProduct) => {
+            // total priset är priset av varje produkt gånger antalet av produkten
             let price = cartProduct.price * cartProduct.inCart;
             sum += price;
 
-            let cartProductWrapper = $("<div></div>").addClass("cartProductWrapper");
+            let cartProductWrapper = $("<div></div>").addClass("cartProductWrapper").attr("id", cartProduct.id);
             $("<img>").attr("src", cartProduct.image).appendTo(cartProductWrapper);
             $("<h5></h5>").text(cartProduct.name).appendTo(cartProductWrapper);
             $("<span></span>").text(cartProduct.price + " kr").appendTo(cartProductWrapper);
 
+            // en input för att kunna byta antal i varukorgen
             let changeAmmountProductInput = $("<input></input>");
             changeAmmountProductInput.attr("type", "number").attr("value", cartProduct.inCart).on('keypress', (event) => {
                 if (event.key === 'Enter') {
                     cartProduct.inCart = parseInt(changeAmmountProductInput.val());
                     sum += (cartProduct.price * (cartProduct.inCart - 1));
                     totalPrice.html("Total: " + sum + " kr");
-
+                    sessionStorage.setItem(["cart"], JSON.stringify(cart));
                 }
+
             }).appendTo(cartProductWrapper);
+            // för att kunna ta bort en produkt, och sedan uppdatera sessionstorage så den är borttagen där också
             $("<button></button>").attr("type", "button").html("&#10005;").on('click', () =>  {
                 cartProduct.inCart = 0;
                 cart.splice(i, 1);
+                sessionStorage.setItem(["cart"], JSON.stringify(cart));
                 productCart();
             }).appendTo(cartProductWrapper);
 
             cartProductWrapper.appendTo($("#cart"));
 
-
         })
         let totalPrice = $("<p></p>");
         totalPrice.html("Total: " + sum + " kr").appendTo($("#cart"));
 
-        //note to self: add function to remove items from local storage when removing items from cart
         //saving the array to local storage so that it can be used when the user clicks on the Cart tab
         sessionStorage.setItem(["cart"], JSON.stringify(cart));
 
     }
-
+    // varukorgen är en jQuery UI Dialog, som jag här konfigurerar lite så jag vill ha den. 
     $("#cart").dialog({
         autoOpen: false,
         width: "auto",
-        create: function(event, ui) {
-            // Set maxWidth
-            $(this).css("maxWidth", "550px");
-
-        },
+        resizable: false,
+        maxHeight: 550,
+        maxWidth: 500,
         position: { my: "left top", at: "left top", of: "#temporaryCart" },
         dialogClass: 'myDialogClass',
         buttons: [{
@@ -212,7 +251,7 @@ function productCart() {
 
         ]
     });
-
+    // öppna varukorgen när man klickar på varukorgsknappen
     $("#temporaryCart").on('click', () => {
         $("#cart").dialog("open");
     })

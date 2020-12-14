@@ -37,7 +37,8 @@ body {
           font-weight: 500;
           cursor: pointer; }
           body section article div:nth-child(2) a:hover {
-            text-decoration: underline #4B3FD7; }
+            text-decoration: underline #4B3FD7;
+            background-color: #118ab2 !important; }
       body section article div:nth-child(3) {
         padding-bottom: 3rem; }
         body section article div:nth-child(3) a {
