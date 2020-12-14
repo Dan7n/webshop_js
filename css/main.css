@@ -11,7 +11,7 @@ html {
   html body {
     height: 100%;
     width: 100%;
-    background: linear-gradient(to right, rgba(189, 195, 199, 0.1), rgba(44, 62, 80, 0.6)), url("../../assets/hero.jpg");
+    background: linear-gradient(to right, rgba(189, 195, 199, 0.1), rgba(249, 220, 196, 0.2)), url("../../assets/hero.jpg");
     background-size: cover;
     background-position: center; }
     html body header {
@@ -113,6 +113,56 @@ html {
           color: #BD081C; }
         html body footer ul #twitter:hover {
           color: #1DA1F2; }
+
+.overlay-text {
+  position: absolute;
+  top: 35%;
+  left: 10%;
+  height: 40%; }
+  .overlay-text p {
+    width: 50%;
+    font-size: 1.4rem;
+    color: #161a1d;
+    font-weight: 600;
+    margin-bottom: 1.8rem; }
+  .overlay-text h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: -5px 1px 0px rgba(255, 0, 0, 0.8);
+    font-weight: 800; }
+  .overlay-text a {
+    margin-top: 3rem;
+    color: white;
+    font-size: 1.5rem;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 100; }
+    .overlay-text a:before {
+      content: "";
+      background-color: rgba(230, 0, 0, 0.8);
+      width: 100%;
+      height: 1em;
+      position: absolute;
+      z-index: -1;
+      filter: url(#marker-shape);
+      left: -0.25em;
+      top: 0.1em;
+      padding: 0 0.25em;
+      transition: ease-in-out 100ms all; }
+    .overlay-text a:hover:before {
+      background-color: rgba(255, 51, 51, 0.8);
+      transform: scale(1.1); }
+  @media screen and (max-width: 700px) {
+    .overlay-text {
+      left: 20%;
+      top: 13%; }
+      .overlay-text p {
+        font-size: 1.2rem;
+        width: 80%; }
+      .overlay-text a {
+        margin-bottom: 3rem; } }
 
 @media screen and (min-width: 700px) {
   header {

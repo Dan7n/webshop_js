@@ -20,6 +20,13 @@ class Product {
 let id = 0;
 $(function() {
 
+    // $(".overlay-text").animate({
+    //     top: "35%",
+    //     opacity: "1"
+    // }, 700);
+
+
+
     $(".logo-svg").on("mouseenter", () => {
         $("svg > path").attr("fill", "#0b325d");
     }).on("mouseleave", () => {

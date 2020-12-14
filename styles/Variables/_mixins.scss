@@ -5,7 +5,7 @@
 }
 
 @mixin gradient-background {
-    background: linear-gradient(to right, rgba(189, 195, 199, 0.1), rgba(44, 62, 80, 0.6)), url("../../assets/hero.jpg");
+    background: linear-gradient(to right, rgba(189, 195, 199, 0.1), rgba(249, 220, 196, 0.2)), url("../../assets/hero.jpg");
     background-size: cover;
     background-position: center;
 }

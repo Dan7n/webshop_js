@@ -141,6 +141,64 @@ html {
     }
 }
 
+.overlay-text {
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    height: 40%;
+    p {
+        width: 50%;
+        font-size: 1.4rem;
+        color: #161a1d;
+        font-weight: 600;
+        margin-bottom: 1.8rem;
+    }
+    h1 {
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        color: white;
+        text-shadow: -5px 1px 0px rgba(255, 0, 0, 0.8);
+        font-weight: 800;
+    }
+    a {
+        margin-top: 3rem;
+        color: white;
+        font-size: 1.5rem;
+        position: relative;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: 100;
+        &:before {
+            content: "";
+            background-color: hsla(0, 100%, 45%, 0.8);
+            width: 100%;
+            height: 1em;
+            position: absolute;
+            z-index: -1;
+            filter: url(#marker-shape);
+            left: -0.25em;
+            top: 0.1em;
+            padding: 0 0.25em;
+            transition: ease-in-out 100ms all;
+        }
+        &:hover:before {
+            background-color: hsla(0, 100%, 60%, 0.8);
+            transform: scale(1.1)
+        }
+    }
+    @media screen and (max-width: 700px) {
+        left: 20%;
+        top: 13%;
+        p {
+            font-size: 1.2rem;
+            width: 80%;
+        }
+        a {
+            margin-bottom: 3rem;
+        }
+    }
+}
+
 @media screen and (min-width: 700px) {
     header {
         background-color: rgba(11, 24, 40, 0.1) !important;
