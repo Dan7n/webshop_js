@@ -1,6 +1,9 @@
 html {
   height: 100%; }
   html body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-image: none !important;
     background: linear-gradient(262deg, #f9dcc4, #cbc0d3) !important;
     background-size: 400% 400%;
@@ -91,7 +94,7 @@ html {
               font-size: 0.9rem; }
         html body .cart-contanier .cart-items .price-container {
           width: 30%;
-          height: 30%;
+          height: 40%;
           position: sticky;
           display: flex;
           flex-direction: column;
@@ -121,7 +124,7 @@ html {
             font-weight: 400; }
           html body .cart-contanier .cart-items .price-container a {
             padding: 7px;
-            margin-bottom: 1rem;
+            margin: 1rem 0;
             font-size: 0.9rem;
             font-weight: 200;
             background-color: #093443;
@@ -243,6 +246,7 @@ html {
         font-size: 1.6rem;
         font-weight: 300; }
     html body footer {
+      position: static;
       height: 70px !important;
       background-color: rgba(11, 24, 40, 0.3);
       transition: background-color ease-in-out 200ms;
