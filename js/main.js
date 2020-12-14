@@ -212,6 +212,7 @@ function productCart() {
                     sum += (cartProduct.price * (cartProduct.inCart - 1));
                     totalPrice.html("Total: " + sum + " kr");
                     sessionStorage.setItem(["cart"], JSON.stringify(cart));
+                    productCart();
                 }
 
             }).appendTo(cartProductWrapper);

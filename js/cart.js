@@ -100,7 +100,7 @@ $(function() {
 
             //unit price
             $("<p>").html(`${value.price * value.inCart}SEK`).addClass("cart-item-p-price").appendTo(cartItemContainer);
-            listOfPrices.push(value.price) //adds current price to a list of all prices in cart
+            listOfPrices.push(value.price * value.inCart); //adds current price to a list of all prices in cart
         })
 
         //gets total price of all items inside the listOfPrices array
