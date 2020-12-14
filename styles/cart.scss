@@ -84,11 +84,11 @@ html {
                             }
                         }
                         img {
-                            width: 150px;
                             height: 150px;
                             margin: 0 1rem;
                             grid-area: img;
                             align-self: center;
+                            justify-self: start;
                         }
                         .cart-item-p-price {
                             grid-area: price;

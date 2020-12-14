@@ -79,11 +79,11 @@ html {
                 align-self: end;
                 margin-bottom: 1rem; }
             html body .cart-contanier .cart-items .wrapper .cart-item-container img {
-              width: 150px;
               height: 150px;
               margin: 0 1rem;
               grid-area: img;
-              align-self: center; }
+              align-self: center;
+              justify-self: start; }
             html body .cart-contanier .cart-items .wrapper .cart-item-container .cart-item-p-price {
               grid-area: price;
               justify-self: start;
